@@ -1,0 +1,25 @@
+.collaboration {
+    padding: 50px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0),rgba(43, 43, 43, 0.062));
+    text-align: center;
+  }
+  
+  .collaboration h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff; /* Main accent color */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.062),rgba(43, 43, 43, 0.062));
+    padding-block: 15px;
+  }
+  
+  
+  .collaboration-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-items: center;
+    gap: 20px; /* Space between cards */
+    margin: 0 auto; /* Center the grid */
+  }
+  
+ 

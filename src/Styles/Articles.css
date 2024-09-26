@@ -1,0 +1,21 @@
+.articles {
+    padding: 50px;
+     background-color: rgba(43, 43, 43, 0.062);
+  }
+  
+  .articles h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.062),rgba(43, 43, 43, 0.062));
+    padding-block: 15px;
+
+  }
+  
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  

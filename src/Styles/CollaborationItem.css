@@ -1,0 +1,56 @@
+
+  
+  .collaboration p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #c5c5c5; /* Darker text for contrast */
+  }
+
+  
+  .collaboration-card {
+    border: 1px solid #d0d3ff49;
+    background-color:#05335215;
+    border-radius: 10px; /* Rounded corners */
+    max-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    transition: transform 0.3s ease; /* Animation for hover */
+  }
+  
+  .collaboration-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+  }
+  
+  .collaboration-image {
+    max-width: 100%; /* Responsive image */
+    border-radius: 8px; /* Rounded corners for images */
+    margin-bottom: 15px; /* Space between image and text */
+  }
+  
+  .collaboration-title {
+    font-size: 1.5rem; /* Title font size */
+    color: #ffffff; /* Darker text color */
+    margin-bottom: 10px; /* Space below title */
+  }
+  
+  .collaboration-description {
+    font-size: 1rem; /* Description font size */
+    color: #666; /* Lighter text color for description */
+    margin-bottom: 15px; /* Space below description */
+  }
+  
+  .collaboration-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background */
+    color: #fff; /* Button text color */
+    border-radius: 30px; /* Rounded button */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Animation for hover */
+  }
+  
+  .collaboration-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  

@@ -1,0 +1,74 @@
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #22222250;
+    border: 1px solid #d0d3ff49;
+    border-radius: 10px;
+    overflow: hidden;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.226);
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.3s ease; /* Animation for hover */
+  }
+
+  .portfolio-item:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #22222250;
+    border: 1px solid #d0d3ff49;
+    border-radius: 10px;
+    overflow: hidden;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.226);
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.3s ease; /* Animation for hover */
+  }
+
+  .portfolio-item:hover {
+     transform: translateY(-5px); /* Slight lift on hover */
+  }
+
+  
+  .portfolio-image {
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .portfolio-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+    flex-grow: 1;
+  }
+  
+  .portfolio-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .view-btn {
+    text-decoration: none;
+    background-color: #ffbb00ea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    justify-content: space-around;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .view-btn:hover {
+    background-color: #36e909d7;
+  }
+  
