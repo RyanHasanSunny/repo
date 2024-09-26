@@ -1,10 +1,9 @@
 .portfolio {
     padding: 50px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0),rgba(43, 43, 43, 0.062));
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0;
+    
   }
+
 
 .portfolio-list {
 
@@ -12,9 +11,9 @@
     flex-wrap: wrap;
     justify-content:center;
     gap: 20px;
-    
 }
-  
+
+
   .portfolio h2 {
     font-size: 2.5rem;
     text-align: center;
@@ -24,13 +23,18 @@
 
 
   }
-  @keyframes appear {
-    from {
-     opacity: 0;
-     scale: 0.5;
-    }
-    to {
-      opacity: 1;
-      scale: 1;
-    }
+
+  .portfolio-item {
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
   }
+  
+  .portfolio-item.scale-up {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  
+  
+  

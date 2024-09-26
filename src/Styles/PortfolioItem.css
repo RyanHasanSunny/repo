@@ -11,28 +11,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.226);
     margin-bottom: 20px;
     padding: 15px;
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0;
-
-  }
-
-  .portfolio-item:hover {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #22222250;
-    border: 1px solid #d0d3ff49;
-    border-radius: 10px;
-    overflow: hidden;
-    gap: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.226);
-    margin-bottom: 20px;
-    padding: 15px;
     transition: transform 0.3s ease; /* Animation for hover */
   }
 
+  
   .portfolio-item:hover {
      transform: translateY(-5px); /* Slight lift on hover */
   }
@@ -74,13 +56,4 @@
   .view-btn:hover {
     background-color: #36e909d7;
   }
-  @keyframes appear {
-    from {
-     opacity: 0;
-     scale: 0;
-    }
-    to {
-      opacity: 1;
-      scale: 1;
-    }
-  }
+  
