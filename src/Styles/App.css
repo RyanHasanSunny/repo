@@ -1,11 +1,41 @@
 .App {
-  text-align: center;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#000000,#00eeff52);
+  mix-blend-mode:lighten;
+  position: fixed;
+
+  width: 100%;
 }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+.nav-links a {
+  
+  text-align: center;
+  color: white; /* Navigation link color */
+  text-decoration: none;
+  transition: transform 1s ease; /* Animation for hover */}
+
+.nav-links a:hover {
+ font-size: 20px;
+  
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -20,7 +50,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -28,11 +57,15 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes appear {
   from {
-    transform: rotate(0deg);
+   opacity: 0;
+   scale: 0.5;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    scale: 1;
   }
 }
+
+

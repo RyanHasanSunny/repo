@@ -1,6 +1,10 @@
 .articles {
     padding: 50px;
      background-color: rgba(43, 43, 43, 0.062);
+     animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+
   }
   
   .articles h2 {
@@ -18,4 +22,3 @@
     flex-direction: column;
     gap: 20px;
   }
-  

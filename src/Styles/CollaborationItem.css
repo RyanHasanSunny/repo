@@ -14,8 +14,15 @@
     max-width: 300px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
     padding: 20px;
-    text-align: left; /* Align text to the left */
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center; /* Align text to the left */
     transition: transform 0.3s ease; /* Animation for hover */
+    animation: appear ease-in;
+    animation-timeline: view();
+    animation-range: entry 0;
   }
   
   .collaboration-card:hover {
@@ -43,14 +50,14 @@
   .collaboration-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff; /* Button background */
+    background-color: #1302ff; /* Button background */
     color: #fff; /* Button text color */
-    border-radius: 30px; /* Rounded button */
+    border-radius: 10px; /* Rounded button */
     text-decoration: none; /* Remove underline */
     transition: background-color 0.3s ease; /* Animation for hover */
   }
   
   .collaboration-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #36e909d7; /* Darker shade on hover */
   }
   

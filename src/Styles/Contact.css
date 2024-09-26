@@ -1,9 +1,13 @@
 .contact {
     padding: 50px;
     background-color: rgba(43, 43, 43, 0.062);
+    animation: appear ease-in;
+    animation-timeline: view();
+    animation-range: entry 0;
   }
   
   .contact h2 {
+  
     text-align: center;
     margin-bottom: 30px;
     font-size: 2.5rem;
@@ -14,12 +18,16 @@
   }
   
   .contact-form {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
     max-width: 600px;
     margin: 0 auto;
   }
   
   .form-group {
     margin-bottom: 20px;
+    color: #ffffff;
   }
   
   .form-group label {
@@ -29,13 +37,17 @@
     color: #ffffff;
   }
   
+  .form-group input {
+    color: #ffffff;
+  }
   .form-group input,
   .form-group textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #d0d3ff49;
-    background-color: #0312663d;
+    background-color: #ffffff15;
+    color: #ffffff;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s;
@@ -62,4 +74,24 @@
   .submit-btn:hover {
     background-color: #0056b3;
   }
-  
+  @keyframes movex {
+    from {
+     opacity: 0;
+     transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes appear {
+    from {
+     opacity: 0;
+     scale: 0;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
