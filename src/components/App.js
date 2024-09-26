@@ -1,6 +1,6 @@
 import React from 'react';
 import Introduction from './Introduction';
-// import Articles from './Articles';
+import Articles from './Articles';
 import Portfolio from './Portfolio';
 import Collaboration from './Collaboration';
 import Contact from './Contact';
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Introduction />
       <Portfolio />
-      {/* <Articles /> */}
+      <Articles />
       <Collaboration />
       <Contact />
       <Footer />
