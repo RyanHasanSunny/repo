@@ -34,6 +34,10 @@ function App() {
         <Routes>
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
+          <Route
+          path="/admin"
+          element={isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />}
+        />
 
           <Route path="/" element={
             <>
@@ -56,10 +60,6 @@ function App() {
             </>
           } />
           
-          <Route
-          path="/admin"
-          element={isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/login" />}
-        />
         </Routes>
       </div>
     </Router>
