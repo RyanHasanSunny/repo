@@ -14,6 +14,5 @@ const ArticleItem = ({ image, title, description, link }) => {
     );
   };
   
-
   export default ArticleItem;
   

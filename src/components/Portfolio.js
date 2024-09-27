@@ -1,47 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PortfolioItem from '../components/PortfolioItem';
 import '../Styles/Portfolio.css';
-import Item1 from '../assets/gemstone ring.png';
-import Item2 from '../assets/ring2.png';
-import Item3 from '../assets/ring2.png';
-import Item4 from '../assets/ring2.png';
-import Item5 from '../assets/ring2.png';
+import { db } from './firebaseConfig'; // Import your Firestore configuration
+import { collection, getDocs } from 'firebase/firestore';
 
 const Portfolio = () => {
-  const portfolioItems = [
-    {
-      id: 1,
-      image: Item1,
-      title: '3D Jewelry Design',
-      link: '/portfolio-item-1',
-    },
-    {
-      id: 2,
-      image: Item2,
-      title: 'Logo Design',
-      link: '/portfolio-item-2',
-    },
-    {
-      id: 3,
-      image: Item3,
-      title: 'Logo Design',
-      link: '/portfolio-item-3',
-    },
-    {
-      id: 4,
-      image: Item4,
-      title: 'Logo Design',
-      link: '/portfolio-item-4',
-    },
-    {
-      id: 5,
-      image: Item5,
-      title: 'Logo Design',
-      link: '/portfolio-item-5',
-    },
-  ];
-
   const portfolioRef = useRef(null);
+  const [loading, setLoading] = useState(true);
+  const [portfolioItems, setPortfolioItems] = useState([]);
+
+  useEffect(() => {
+    const fetchPortfolioItems = async () => {
+      try {
+        const portfolioSnapshot = await getDocs(collection(db, 'portfolio'));
+        const fetchedPortfolio = portfolioSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPortfolioItems(fetchedPortfolio);
+      } catch (error) {
+        console.error("Error fetching portfolio items: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPortfolioItems();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +46,8 @@ const Portfolio = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <section className="portfolio" ref={portfolioRef}>

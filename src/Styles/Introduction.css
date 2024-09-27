@@ -1,12 +1,14 @@
 .introduction-section {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
   min-height: 100vh;
   background-blend-mode: multiply;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgb(0, 0, 0));
-  padding-inline: 50px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(59, 18, 18, 0.555),
+      rgb(0, 0, 0)
+    ),
+    url("../assets/Background.png");
 }
 
 .home-content {
@@ -100,24 +102,34 @@
   color: #fff;
 }
 
+.Adminbtnplace {
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  right: 0px;
+  position: fixed;
+  padding: 50px;
+}
 .admin-btn {
-  background-color: #4CAF50; /* Green */
+  opacity: 20%;
+  float: right;
+  background-color: #5f5f5f56; /* Green */
   color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .admin-btn:hover {
-  background-color: #45a049; /* Darker green */
+  background-color: #353535; /* Darker green */
+  opacity: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 .img {
   display: flex;
