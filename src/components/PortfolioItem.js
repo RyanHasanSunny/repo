@@ -7,7 +7,6 @@ const PortfolioItem = ({ image, title, link }) => {
       <img src={image} alt={title} className="portfolio-image" />
       <div className="portfolio-content">
         <h3>{title}</h3>
-        
       </div>
       <a href={link} className="view-btn">View</a>
     </div>
