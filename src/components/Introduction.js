@@ -33,6 +33,7 @@ const Introduction = ({ isEditing, onEditChange }) => {
         console.error("Error fetching data from Firestore: ", error);
       }
     };
+    
 
     fetchData();
   }, []);
