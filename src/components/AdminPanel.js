@@ -7,7 +7,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const AdminPanel = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [ ,setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
