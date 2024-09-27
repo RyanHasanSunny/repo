@@ -127,7 +127,7 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
 
   // Portfolio Handlers
   const handleAddPortfolioItem = async () => {
-    if (!newPortfolioItem.title || !newPortfolioItem.description || !newPortfolioItem.image || !newPortfolioItem.link) {
+    if (!newPortfolioItem.title || !newPortfolioItem.image ) {
       alert('Please fill in all fields.');
       return;
     }
@@ -187,8 +187,9 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
   return (
     <div className="admin-panel">
       <h1>Admin Panel</h1>
-
-      <button className="logout-btn" onClick={handleLogout}>Logout</button>
+      <form onSubmit={handleLogout}>
+      <button className="logout-btn" onClick="Submit">Logout</button>
+      <button onClick={() => navigate("/")}>Back to Home</button>
 
       {/* Introduction Section */}
       <section>
@@ -244,7 +245,7 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
         {editingPortfolioItem && (
           <div>
             <input type="text" value={editingPortfolioItem.title} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, title: e.target.value })} />
-            <input type="text" value={editingPortfolioItem.description} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, description: e.target.value })} />
+            {/* <input type="text" value={editingPortfolioItem.description} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, description: e.target.value })} /> */}
             <input type="text" value={editingPortfolioItem.image} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, image: e.target.value })} />
             <input type="text" value={editingPortfolioItem.link} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, link: e.target.value })} />
             <button onClick={handleEditPortfolioItem}>Save Changes</button>
@@ -252,13 +253,15 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
           </div>
         )}
         <input type="text" value={newPortfolioItem.title} placeholder="Title" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, title: e.target.value })} />
-        <input type="text" value={newPortfolioItem.description} placeholder="Description" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, description: e.target.value })} />
+        {/* <input type="text" value={newPortfolioItem.description} placeholder="Description" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, description: e.target.value })} /> */}
         <input type="text" value={newPortfolioItem.link} placeholder="Link" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, link: e.target.value })} />
         <input type="file" accept="image/*" onChange={handlePortfolioImageUpload} />
         <button onClick={handleAddPortfolioItem}>Add Portfolio Item</button>
       </section>
+      </form>
     </div>
   );
 };
 
 export default AdminPanel;
+

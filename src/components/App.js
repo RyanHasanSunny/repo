@@ -1,33 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes instead of Switch
-import '../Styles/App.css'; // Ensure your CSS file exists
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import '../Styles/App.css';
 import Introduction from './Introduction';
 import Articles from './Articles';
 import Portfolio from './Portfolio';
 import Collaboration from './Collaboration';
 import Contact from './Contact';
 import Footer from './Footer';
-import AdminPanel from './AdminPanel'; // Import your admin panel component
+import AdminPanel from './AdminPanel';
+import Logout from './Logout';
+import AdminLogin from './AdminLogin';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <Router>
       <div className="App">
-        {/* Navigation Links (optional, uncomment if you want a nav bar) */}
-        {/* 
-        <nav>
-          <ul className="nav-links">
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#articles">Articles</a></li>
-            <li><a href="#collaboration">Collaboration</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-        */}
-
         <Routes>
-          {/* Route for the main content */}
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
+
           <Route path="/" element={
             <>
               <section id="introduction">
@@ -49,8 +42,9 @@ function App() {
             </>
           } />
           
-          {/* Route for the admin panel */}
-          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin" element={
+            isAuthenticated ? <AdminPanel /> : <Navigate to="/login" />
+          } />
         </Routes>
       </div>
     </Router>
