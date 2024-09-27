@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { db, storage, auth } from './firebaseConfig';
 import { collection, addDoc, updateDoc, deleteDoc, getDocs, doc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import '../Styles/AdminPanel.css';
 
-const AdminPanel = ({ setIsAuthenticated  }) => {
+const AdminPanel = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,6 +28,19 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
   const [newPortfolioItem, setNewPortfolioItem] = useState({ title: '', description: '', image: '', link: '' });
   const [editingPortfolioItem, setEditingPortfolioItem] = useState(null);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+        navigate("/login"); // Redirect to login page if not authenticated
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup subscription
+  }, [navigate, setIsAuthenticated]);
+  
   // Fetch data from Firestore
   useEffect(() => {
     const fetchData = async () => {
@@ -127,7 +140,7 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
 
   // Portfolio Handlers
   const handleAddPortfolioItem = async () => {
-    if (!newPortfolioItem.title || !newPortfolioItem.image ) {
+    if (!newPortfolioItem.title || !newPortfolioItem.image) {
       alert('Please fill in all fields.');
       return;
     }
@@ -175,12 +188,10 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
       await signOut(auth);
       setIsAuthenticated(false);
       console.log("Successfully logged out");
-      navigate("/login")
     } catch (error) {
       console.error("Logout error: ", error);
     }
   };
-
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading data: {error.message}</div>;
@@ -188,22 +199,21 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
   return (
     <div className="admin-panel">
       <h1>Admin Panel</h1>
-      <form onSubmit={handleLogout}>
       <button onClick={handleLogout}>Logout</button>
       <button onClick={() => navigate("/")}>Back to Home</button>
 
       {/* Introduction Section */}
       <section>
         <h2>Edit Introduction</h2>
-        <input type="text" value={welcomeText} onChange={(e) => setWelcomeText(e.target.value)} />
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
+        <input type="text" value={welcomeText} onChange={(e) => setWelcomeText(e.target.value)} placeholder="Welcome Text" />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+        <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} placeholder="Subtitle" />
         <input type="file" accept="image/*" onChange={handleImageUpload} />
         {imageUploadLoading ? <p>Uploading...</p> : <button onClick={handleSaveIntroduction}>Save Introduction</button>}
       </section>
 
       {/* Articles Section */}
-      <section className="Manageartic">
+      <section>
         <h2>Manage Articles</h2>
         {articles.map(article => (
           <div key={article.id}>
@@ -218,16 +228,13 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
           <div>
             <input type="text" value={editingArticle.title} onChange={(e) => setEditingArticle({ ...editingArticle, title: e.target.value })} />
             <input type="text" value={editingArticle.description} onChange={(e) => setEditingArticle({ ...editingArticle, description: e.target.value })} />
-            <input type="text" value={editingArticle.image} onChange={(e) => setEditingArticle({ ...editingArticle, image: e.target.value })} />
-            <input type="text" value={editingArticle.link} onChange={(e) => setEditingArticle({ ...editingArticle, link: e.target.value })} />
             <button onClick={handleEditArticle}>Save Changes</button>
             <button onClick={() => setEditingArticle(null)}>Cancel</button>
           </div>
         )}
-        <input type="text" value={newArticle.title} placeholder="Title" onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })} />
-        <input type="text" value={newArticle.description} placeholder="Description" onChange={(e) => setNewArticle({ ...newArticle, description: e.target.value })} />
-        <input type="text" value={newArticle.link} placeholder="Link" onChange={(e) => setNewArticle({ ...newArticle, link: e.target.value })} />
-        <input type="file" accept="image/*" onChange={handlePortfolioImageUpload} />
+        <input type="text" value={newArticle.title} onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })} placeholder="Article Title" />
+        <input type="text" value={newArticle.description} onChange={(e) => setNewArticle({ ...newArticle, description: e.target.value })} placeholder="Article Description" />
+        <input type="text" value={newArticle.link} onChange={(e) => setNewArticle({ ...newArticle, link: e.target.value })} placeholder="Article Link" />
         <button onClick={handleAddArticle}>Add Article</button>
       </section>
 
@@ -246,23 +253,18 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
         {editingPortfolioItem && (
           <div>
             <input type="text" value={editingPortfolioItem.title} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, title: e.target.value })} />
-            {/* <input type="text" value={editingPortfolioItem.description} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, description: e.target.value })} /> */}
-            <input type="text" value={editingPortfolioItem.image} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, image: e.target.value })} />
-            <input type="text" value={editingPortfolioItem.link} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, link: e.target.value })} />
+            <input type="text" value={editingPortfolioItem.description} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, description: e.target.value })} />
             <button onClick={handleEditPortfolioItem}>Save Changes</button>
             <button onClick={() => setEditingPortfolioItem(null)}>Cancel</button>
           </div>
         )}
-        <input type="text" value={newPortfolioItem.title} placeholder="Title" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, title: e.target.value })} />
-        {/* <input type="text" value={newPortfolioItem.description} placeholder="Description" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, description: e.target.value })} /> */}
-        <input type="text" value={newPortfolioItem.link} placeholder="Link" onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, link: e.target.value })} />
+        <input type="text" value={newPortfolioItem.title} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, title: e.target.value })} placeholder="Portfolio Item Title" />
+        <input type="text" value={newPortfolioItem.description} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, description: e.target.value })} placeholder="Portfolio Item Description" />
         <input type="file" accept="image/*" onChange={handlePortfolioImageUpload} />
         <button onClick={handleAddPortfolioItem}>Add Portfolio Item</button>
       </section>
-      </form>
     </div>
   );
 };
 
 export default AdminPanel;
-
