@@ -6,17 +6,22 @@
     background-color: #22222250;
     border: 1px solid #d0d3ff49;
     border-radius: 10px;
-    overflow: hidden;
     gap: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.226);
     margin-bottom: 20px;
     padding: 15px;
-    transition: transform 0.3s ease; /* Animation for hover */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
+    text-align: center;
   }
 
   
   .portfolio-item:hover {
-     transform: translateY(-5px); /* Slight lift on hover */
+    transform: scale(1);
+    opacity: 1;
   }
 
   
@@ -25,6 +30,14 @@
     min-width: 200px;
     height: auto;
     border-radius: 8px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.4s ease-out;
+    
+  }
+
+  .portfolio-item:hover .portfolio-image {
+    transform: scale(1.05); /* Slight scale-up on hover */
   }
   
   .portfolio-content {
@@ -57,3 +70,13 @@
     background-color: #36e909d7;
   }
   
+  .portfolio-item {
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  
+  .portfolio-item.scale-up {
+    transform: scale(1);
+    opacity: 1;
+  }
