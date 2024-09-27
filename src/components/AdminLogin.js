@@ -15,6 +15,7 @@ const AdminLogin = ({ setIsAuthenticated }) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setIsAuthenticated(true);
+      navigate("/admin")
     } catch (error) {
       setError(error.message);
       console.error("Login error: ", error);
@@ -42,6 +43,7 @@ const AdminLogin = ({ setIsAuthenticated }) => {
             required
           />
           <button type="submit">Login</button>
+          
         <button onClick={() => navigate("/")}>Back to Home</button>
         </form>
       </div>
