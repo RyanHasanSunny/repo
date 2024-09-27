@@ -36,7 +36,7 @@ function App() {
           <Route path="/login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
           <Route
           path="/admin"
-          element={isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />}
+          element={isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/login" />}
         />
 
           <Route path="/" element={
