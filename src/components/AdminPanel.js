@@ -34,7 +34,7 @@ const AdminPanel = ({ setIsAuthenticated }) => {
         setIsAuthenticated(true);
       } else {
         setIsAuthenticated(false);
-        navigate("/login"); // Redirect to login page if not authenticated
+        
       }
     });
 
