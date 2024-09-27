@@ -175,6 +175,7 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
       await signOut(auth);
       setIsAuthenticated(false);
       console.log("Successfully logged out");
+      navigate("/login")
     } catch (error) {
       console.error("Logout error: ", error);
     }
@@ -188,7 +189,7 @@ const AdminPanel = ({ setIsAuthenticated  }) => {
     <div className="admin-panel">
       <h1>Admin Panel</h1>
       <form onSubmit={handleLogout}>
-      <button className="logout-btn" onClick="Submit">Logout</button>
+      <button onClick={handleLogout}>Logout</button>
       <button onClick={() => navigate("/")}>Back to Home</button>
 
       {/* Introduction Section */}

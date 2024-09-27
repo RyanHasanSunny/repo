@@ -43,7 +43,7 @@ function App() {
           } />
           
           <Route path="/admin" element={
-            isAuthenticated ? <AdminPanel /> : <Navigate to="/login" />
+            isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/login" />
           } />
         </Routes>
       </div>
