@@ -51,7 +51,16 @@ const Portfolio = () => {
 
   return (
     <section className="portfolio" ref={portfolioRef}>
+      <div className='titlefm'>
+      <div className='title'>
+        <h2>YOU CAN</h2>
+        <h2>SEE MY WORKS</h2>
+        <div className='texthere'>HERE</div>
+        </div>
+        </div>
+        <div className='headertitle'>
       <h2>Portfolio</h2>
+      </div>
       <div className="portfolio-list">
         {portfolioItems.map(item => (
           <PortfolioItem

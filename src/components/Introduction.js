@@ -38,17 +38,16 @@ const Introduction = () => {
 
   return (
     <section id="home" className="introduction-section">
-      
+
+      {/* edit button */}
       <div className="Adminbtnplace">
         <NavLink to="/admin" className="admin-btn">
           Edit
         </NavLink>
 
       </div>
+      
       <div className="home-content">
-        {/* <div className="bgimg">
-          <img src={bgimg} alt="Ryan Hasan Sunny" className="home-img" />
-        </div> */}
         <div className="home-content-header">
           <div className="img">
             {/* Display the uploaded image or fallback */}
@@ -64,7 +63,7 @@ const Introduction = () => {
             <h3>{subtitle}</h3>
             <div className="buttons">
               <NavLink to="/connect" className="connect-btn">
-                Connect
+                About me
               </NavLink>
               <NavLink to="/Download-resume" className="download-btn">
                 Download Resume

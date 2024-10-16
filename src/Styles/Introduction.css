@@ -1,20 +1,21 @@
 .introduction-section {
   display: flex;
   flex-wrap: wrap;
-  min-height: 100vh;
+  min-height: 120vh;
   background-blend-mode: multiply;
   background-image: linear-gradient(
       180deg,
       rgba(59, 18, 18, 0.555),
       rgb(0, 0, 0)
     ),
-    url("../assets/Background.png");
+    /*url("../assets/Background.png");*/
 }
 
 .home-content {
   display: flex;
-  align-items: center;
+  align-items:start;
   justify-content: space-around;
+ padding-top: 100px;
   max-width: 1200px;
   width: 100%;
   overflow: hidden;
@@ -35,7 +36,7 @@
 }
 
 .text-content {
-  text-align: right;
+  align-items: flex-start;
 }
 
 .text-content h2 {
@@ -49,14 +50,16 @@
 .text-content h1 {
   font-size: 10rem;
   font-weight: bold;
-  color: #ffbb00;
-  margin: 0;
+  color: #293d3d;
+  margin-bottom: -30px;
+  margin-top: -30px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .text-content h3 {
   font-size: 4.5rem;
-  margin-top: 0px;
+  
+  margin-top: -12px;
   color: #fff;
 }
 
