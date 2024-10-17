@@ -3,13 +3,37 @@
   flex-wrap: wrap;
   min-height: 120vh;
   background-blend-mode: multiply;
-  background-image: linear-gradient(
+  cursor: none;
+ /* background-image: linear-gradient(
       180deg,
-      rgba(59, 18, 18, 0.555),
-      rgb(0, 0, 0)
+      rgb(255, 255, 255),
+      rgb(255, 0, 0)
     ),
-    /*url("../assets/Background.png");*/
+    url("../assets/Background.png");*/
+    
 }
+
+.cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-in;
+  mix-blend-mode:exclusion;
+
+}
+
+/* Scale-up class for hover */
+.scale-up {
+  transform: translate(-50%, -50%) scale(4); /* Adjust scale factor here */
+  mix-blend-mode: exclusion;
+}
+
+
 
 .home-content {
   display: flex;
@@ -20,6 +44,8 @@
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
+  cursor: none;
+  
 }
 
 .drawing-board-container {
@@ -28,6 +54,7 @@
 
 .home-content-header {
   display: flex;
+  cursor: none;
   flex-wrap: wrap;
   align-items: center;
   gap: 30px;
@@ -37,6 +64,14 @@
 
 .text-content {
   align-items: flex-start;
+  margin-bottom: 50px;
+  cursor: none;
+
+}
+
+.text-content:hover ~ .cursor {
+  transform: scale(4);
+  
 }
 
 .text-content h2 {
@@ -45,15 +80,17 @@
   font-weight: normal;
   margin-bottom: 10px;
   color: #ffffff;
+  cursor: none;
 }
 
 .text-content h1 {
   font-size: 10rem;
   font-weight: bold;
-  color: #293d3d;
-  margin-bottom: -30px;
-  margin-top: -30px;
+  color: #ffffff;
+  margin-bottom: -50px;
+  margin-top: -60px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: none;
 }
 
 .text-content h3 {
@@ -61,25 +98,31 @@
   
   margin-top: -12px;
   color: #fff;
+  cursor: none;
 }
 
 .buttons {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
   gap: 20px;
+  margin-top: -60px;
   justify-content: right;
+  cursor: none;
 }
+
 
 .connect-btn {
   display: inline-block;
   padding: 12px 30px;
-  background-color: #fff;
-  color: #007bff;
+  background-color: #f35005;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
   border-radius: 10px;
   text-decoration: none;
+  cursor: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -92,12 +135,14 @@
   font-weight: bold;
   border-radius: 10px;
   text-decoration: none;
+  cursor: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .connect-btn:hover {
   background-color: #007bff;
   color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .download-btn:hover {
@@ -108,10 +153,12 @@
 .Adminbtnplace {
   z-index: 1;
   bottom: 0;
-  width: 100%;
+
   right: 0px;
   position: fixed;
   padding: 50px;
+  cursor: none;
+ 
 }
 .admin-btn {
   opacity: 20%;
@@ -124,6 +171,7 @@
   font-size: 16px;
   cursor: pointer;
   border: none;
+  cursor: none;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

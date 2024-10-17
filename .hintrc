@@ -9,7 +9,8 @@
         "ignore": [
           "animation-timeline",
           "animation-timeline: view()",
-          "animation-range"
+          "animation-range",
+          "scrollbar-color"
         ]
       }
     ],

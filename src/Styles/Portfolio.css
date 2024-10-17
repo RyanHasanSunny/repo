@@ -9,7 +9,8 @@
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  position: relative;
+  position: sticky;
+  cursor: none;
 }
 
 .portfolio-list {
@@ -17,13 +18,33 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  cursor: none;
 }
 
 .portfolio h2 {
  
   text-align: left;
   color: #ffffff;
-  margin-bottom: -130px;
+  margin-bottom: -100px;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+
+
+
+.headertitle{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 80pt;
+  margin-top: 100px;
+}
+
+.portfolio h2:hover {
+  opacity: 1;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .portfolio .title {
@@ -37,15 +58,25 @@
 }
 
 .portfolio .titlefm {
+  position: sticky;
   align-self: stretch;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   display: flex;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transform: scale(0.95);
+  
+  width: 80%;
+}
+
+.portfolio .titlefm:hover ~ .cursor {
+  opacity: 1;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .portfolio .headertitle {
-  margin-bottom: 120px;
+  margin-bottom: 12px;
   font-size: 40pt;
   align-items: flex-start;
   display: flex;
@@ -58,6 +89,15 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #ffffff;
   font-weight: bold;
-  font-size: 100pt;
+  margin-left: 20px;
+  font-size: 80pt;
   margin-top: 100px;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+
+.portfolio .texthere:hover {
+  opacity: 1;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
