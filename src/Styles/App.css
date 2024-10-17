@@ -1,6 +1,20 @@
+body {
+  background: linear-gradient(180deg, #0a0400, #0a0505, #0a0400); /* Gradient from blue to cyan */
+  z-index: auto;
+height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif, 'poppins';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+
 .App {
   scroll-behavior: smooth; /* Enable smooth scrolling */
-  
+
   
 }
 
@@ -8,7 +22,6 @@ nav {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(#000000,#00eeff52);
   mix-blend-mode:lighten;
   position: fixed;
 

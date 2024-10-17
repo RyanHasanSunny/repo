@@ -11,6 +11,7 @@ import AdminPanel from './AdminPanel';
 import Logout from './Logout';
 import AdminLogin from './AdminLogin';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import AboutMe from './Aboutme';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,6 +33,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
+        <Route path="/about" element={<AboutMe />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
           <Route
