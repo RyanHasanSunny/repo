@@ -1,7 +1,7 @@
 .introduction-section {
   display: flex;
   flex-wrap: wrap;
-  min-height: 100vh;
+  min-height: 120vh;
   background-blend-mode: multiply;
   cursor: none;
  /* background-image: linear-gradient(
@@ -15,15 +15,15 @@
 
 .cursor {
   position: fixed;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: #ffffff;
   border-radius: 50%;
   z-index: 1000;
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease-in;
-  
+  mix-blend-mode:exclusion;
 
 }
 
@@ -116,7 +116,7 @@
 .connect-btn {
   display: inline-block;
   padding: 12px 30px;
-  background-color: #464646;
+  background-color: #f35005;
   color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
@@ -140,13 +140,13 @@
 }
 
 .connect-btn:hover {
-  background-color: #c9c9c9;
-  color: #040404;
+  background-color: #007bff;
+  color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .download-btn:hover {
-  background-color: #343434;
+  background-color: #007bff;
   color: #fff;
 }
 
