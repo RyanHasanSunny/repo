@@ -38,7 +38,7 @@ const Introduction = () => {
         const dx = mousePos.x - prevPos.x;
         const dy = mousePos.y - prevPos.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const damping = 1.00; // Damping factor for smoothness (lower is smoother)
+        const damping = 1; // Damping factor for smoothness (lower is smoother)
 
         // If the cursor is close to the target, stop updating
         if (distance < 0.1) return prevPos;

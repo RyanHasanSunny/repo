@@ -1,79 +1,103 @@
-.portfolio { 
+.portfolio {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0),
     rgba(43, 43, 43, 0.062)
   );
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
+  justify-content: center;
+  position: sticky;
+  cursor: none;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   cursor: none;
 }
 
 .portfolio h2 {
-  color: beige;
-  margin-bottom: -60px;
+ 
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: -100px;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+
+
+
+.headertitle{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 80pt;
+  margin-top: 100px;
 }
 
 .portfolio h2:hover {
   opacity: 1;
-  transform: translate(10px);
-}
-
-.portfolio h3 {
-  color: beige;
-}
-
-.portfolio .titlefm {
-  width: 100%;
-  margin-bottom: 150px;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .portfolio .title {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding-left: 100px;
-  font-size: 40px;
+  padding-bottom: 10px;
+  margin-inline: 50px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  font-size: 50pt;
 }
 
-.portfolio .section1 {
-  width: 100%;
+.portfolio .titlefm {
+  position: sticky;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   display: flex;
-  flex-direction: row-reverse;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transform: scale(0.95);
+  
+  width: 80%;
 }
 
-.portfolio .section2 {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.portfolio .section3 {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
+.portfolio .titlefm:hover ~ .cursor {
+  opacity: 1;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .portfolio .headertitle {
-  text-align: right;
-  font-size: 40px; 
-  height: fit-content;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  margin-right: 100px;
-  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 40pt;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 }
 
-.portfolio .portfolio-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-inline: 50px;
-  cursor: none;
-  gap: 10px;
-  z-index: 1;
-  margin-bottom: 50px; /* Adjust margin to space out items */
+.portfolio .texthere {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 80pt;
+  margin-top: 100px;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+
+.portfolio .texthere:hover {
+  opacity: 1;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
