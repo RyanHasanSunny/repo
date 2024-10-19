@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion"; // Import motion
 import PortfolioItem from "../components/PortfolioItem";
 import "../Styles/Portfolio.css";
 import { db } from "./firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+
 
 const Portfolio = () => {
   const [loading, setLoading] = useState(true);
@@ -45,6 +47,7 @@ const Portfolio = () => {
 
   return (
     <section className="portfolio">
+
       <div className="titlefm">
         <motion.div
           className="title"
@@ -110,6 +113,7 @@ const Portfolio = () => {
         </div>
         <div className="portfolio-list">
           {portfolioItems.map((item) => (
+
             <PortfolioItem
               key={item.id}
               image={item.image}
