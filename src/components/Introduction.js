@@ -97,7 +97,7 @@ const Introduction = () => {
           setWelcomeText(data.welcomeText || "WELCOME TO");
           setName(data.name || "RYAN");
           setSubtitle(data.subtitle || "Graphic Boy.");
-          setImageUrl(data.image || ""); // Set the initial image URL if available
+          // setImageUrl(data.image || ""); // Set the initial image URL if available
         } else {
           console.log("No such document!");
         }
