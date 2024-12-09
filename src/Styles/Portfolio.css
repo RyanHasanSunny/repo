@@ -5,18 +5,66 @@
     rgb(0, 0, 0),
     rgba(14, 0, 0, 0.808)
   ); */
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  height: fit-content;
+  width: 100%;
   cursor: none;
+}
+
+/* Navbar Styles */
+
+.navbarbordar{
+  width:fit-content;
+  position: sticky;
+  padding-top: 30px;
+  top: 0;
+  z-index: 10;
+  
+}
+.navbar {
+  
+  padding-top: 10px;
+  backdrop-filter: blur(5px);
+  background-color: #16130fda;
+  filter: grayscale(10px);
+  display: flex;
+  border-radius: 50px;
+  border: .5px solid;
+  border-color: rgba(240, 248, 255, 0.274);
+  padding-block: 20px;
+  padding-inline: 20px;
+  margin-bottom: 50px;
+  box-shadow: 0px 5px 20px rgb(19, 17, 11);
+  
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-list li {
+  margin: 0 20px;
+}
+
+.navbar-list a {
+  cursor: none;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar-list a:hover {
+  color: #ff6347; /* Add a hover effect */
 }
 
 .portfolio h2 {
   color: beige;
-  margin-bottom: -60px;
+  font-size: 2rem ;
+  margin-bottom: -14px;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
 
@@ -29,55 +77,31 @@
   color: beige;
 }
 
-.portfolio .titlefm {
-  width: 100%;
-  margin-bottom: 150px;
-}
 
-.portfolio .title {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding-left: 100px;
-  font-size: 40px;
-}
 
 .portfolio .section1 {
-  width: 100%;
+  justify-content: center;
   display: flex;
-  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+ 
 }
 
-.portfolio .section2 {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
+.portfolio .Contants {
+
+  align-content: center;
+  justify-content: center;
+
 }
 
-.portfolio .section3 {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-}
 
-.portfolio .headertitle {
-  text-align: right;
-  font-size: 40px; 
-  height: fit-content;
-  width: 100%;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  margin-right: 100px;
-  padding-top: 200px;
-}
 
 .portfolio .portfolio-list {
   display: flex;
-  flex-wrap: wrap;
+  align-content: center;
   justify-content: center;
-  padding-inline: 50px;
-  cursor: none;
-  gap: 10px;
-  z-index: 1;
-  margin-bottom: 50px; /* Adjust margin to space out items */
+  flex-wrap: wrap;
+  width: 90%;
+  
+  
 }

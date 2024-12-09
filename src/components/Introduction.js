@@ -132,14 +132,14 @@ const Introduction = () => {
 
       <div className="home-content">
         <div className="home-content-header">
-          <div className="img">
-            {/* Display the uploaded image or fallback */}
+          {/* <div className="img">
+            
             {imageUrl ? (
               <img src={imageUrl} alt="Side" className="home-img" />
             ) : (
               <img src={imageUrl} alt="Default Side" className="home-img" />
             )}
-          </div>
+          </div> */}
           <div className="text-content">
             {/* Animate the welcomeText, name, and subtitle */}
             <motion.h2
@@ -181,7 +181,7 @@ const Introduction = () => {
                 </NavLink>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 0.6, delay: 0.9 }}
@@ -190,19 +190,19 @@ const Introduction = () => {
                 <NavLink to="/Download-resume" className="download-btn">
                   Download Resume
                 </NavLink>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </div>
 
-        <motion.div
+        {/* <motion.div
           className="Aboutme-section"
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.7, delay: 1.2 }}
           variants={textVariants}
         >
-          <h2>About Me</h2>
+          
           <div className="details">
             <p>
               Ryan Hasan Sunny is a skilled 3D artist, graphic designer, and
@@ -220,7 +220,21 @@ const Introduction = () => {
               3D designs or vibrant graphic illustrations.
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
+
+<div className="titlefm">
+          <motion.div
+            className="title"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <h2>Dive into my projects,</h2>
+            <h2>where creativity meets precision</h2>
+          </motion.div>
+        </div>
+        
       </div>
     </section>
   );
