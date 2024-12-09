@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import PortfolioItem from "../components/PortfolioItem";
 import "../Styles/Portfolio.css";
 import { db } from "./firebaseConfig";

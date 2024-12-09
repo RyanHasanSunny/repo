@@ -9,7 +9,7 @@ const Introduction = () => {
   const [welcomeText, setWelcomeText] = useState("WELCOME TO");
   const [name, setName] = useState("RYAN");
   const [subtitle, setSubtitle] = useState("Graphic Boy.");
-  const [imageUrl, setImageUrl] = useState(""); // State for the side image URL
+  // const [imageUrl, setImageUrl] = useState(""); // State for the side image URL
 
   const cursor = useRef(null);
 
