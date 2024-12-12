@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { db } from "./firebaseConfig"; // Import your Firestore configuration
 import { doc, getDoc } from "firebase/firestore";
 import "../Styles/Introduction.css";
+import "../Styles/Style.css";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion"; // Import framer-motion
 
@@ -95,8 +96,8 @@ const Introduction = () => {
         if (docSnap.exists()) {
           const data = docSnap.data();
           setWelcomeText(data.welcomeText || "WELCOME TO");
-          setName(data.name || "RYAN");
-          setSubtitle(data.subtitle || "Graphic Boy.");
+          setName(data.name || "");
+          setSubtitle(data.subtitle || "");
           // setImageUrl(data.image || ""); // Set the initial image URL if available
         } else {
           console.log("No such document!");
@@ -116,7 +117,7 @@ const Introduction = () => {
   };
 
   return (
-    <section id="home" className="introduction-section">
+    <section id="introduction-section">
       <div
         ref={cursor}
         className="cursor"
@@ -124,14 +125,14 @@ const Introduction = () => {
       ></div>
       
       {/* edit button */}
-      <div className="Adminbtnplace">
+      <div id="Adminbtnplace" className="Adminbtnplace">
         <NavLink to="/admin" className="admin-btn">
           Edit
         </NavLink>
       </div>
 
-      <div className="home-content">
-        <div className="home-content-header">
+      <div id="home-content" className="home-content">
+        <div id="home-content-header" className="home-content-header">
           {/* <div className="img">
             
             {imageUrl ? (
@@ -140,7 +141,7 @@ const Introduction = () => {
               <img src={imageUrl} alt="Default Side" className="home-img" />
             )}
           </div> */}
-          <div className="text-content">
+          <div id="text-content" className="text-content">
             {/* Animate the welcomeText, name, and subtitle */}
             <motion.h2
               initial="hidden"
@@ -195,34 +196,7 @@ const Introduction = () => {
           </div>
         </div>
 
-        {/* <motion.div
-          className="Aboutme-section"
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.7, delay: 1.2 }}
-          variants={textVariants}
-        >
-          
-          <div className="details">
-            <p>
-              Ryan Hasan Sunny is a skilled 3D artist, graphic designer, and
-              Computer Science and Engineering student with a flair for creative
-              expression and technological expertise. With a strong foundation
-              in digital design tools such as Blender 3D, Adobe Illustrator, and
-              Photoshop, Ryan specializes in 3D modeling, rendering, and
-              animation. His portfolio showcases a wide range of work, from gold
-              jewelry renders to logo designs for businesses like PRS Sourcing,
-              a garment trading office. As a full-time freelancer on Fiverr,
-              Ryan has honed his ability to deliver high-quality, visually
-              compelling projects, balancing both technical precision and
-              artistic vision. His work is driven by a passion for bringing
-              ideas to life in visually striking ways, whether through intricate
-              3D designs or vibrant graphic illustrations.
-            </p>
-          </div>
-        </motion.div> */}
-
-<div className="titlefm">
+<div id="introduction-title">
           <motion.div
             className="title"
             initial={{ opacity: 0, y: -20 }}

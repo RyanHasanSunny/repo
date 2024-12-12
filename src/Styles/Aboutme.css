@@ -1,0 +1,141 @@
+
+#aboutme-content{
+  padding: 100px;
+
+  justify-content: center;
+}
+
+#Image-name{
+  display: flex;
+  
+  justify-content: center;
+  padding-bottom: 50px; 
+  gap: 20px;
+  border-bottom: 10px;
+  border-bottom: .1rem solid rgba(131, 110, 70, 0.11);
+
+}
+
+#img {
+  display: flex;
+  max-width: 300px;
+  min-height: auto;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid #d0d3ff49;
+  transition: transform 0.3s ease;
+  /* Animation for hover */
+}
+
+#img:hover {
+  transform: scale(95%);
+}
+
+#img .bgimg:hover {
+  transform: scale(400px);
+}
+
+
+
+
+#Name{
+  width: 100%;
+  
+}
+
+#Name h2{
+  font-family: fantasy;
+ margin-bottom: 0%;
+ font-size: 50px;
+}
+
+
+#Name p{
+  font-family: fantasy;
+  margin-top: 0%;
+  font-size: 50px;
+ }
+
+ #text-content{
+  text-align: left;
+  
+ }
+
+ #workingdetails {
+
+  padding-top: 40px;
+  display: flex;
+ gap: 60px;
+ }
+
+ #workingdetails  h2{
+  font-family:monospace;
+font-size: 18px ;
+margin-bottom: 0%;
+ }
+
+ #workingdetails p{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 35px ;
+   }
+
+
+
+
+#section{
+  color: antiquewhite;
+  text-align: left;
+  gap: 40px;
+ display: flex;
+ justify-content: space-around;
+  padding-top: 100px;
+}
+
+#section .title{
+  justify-content: space-around;
+  width: 300px;
+}
+
+
+#skills{
+  height: 100px;
+  padding-bottom: 150px;
+}
+
+#skills .tools{
+padding-top: 10px;
+ display: flex;
+ gap: 20px;
+  
+}
+#skills .tools .imagesize{
+
+  height: 70px;
+  width: 70px;
+  
+}
+
+#section .details{
+  justify-content: space-around;
+  width: 60%;
+}
+
+
+
+
+#section .title h2{
+ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  justify-content: space-around;
+}
+
+
+#section h2{
+  text-align: justify;
+  font-size: 35px;
+}
+
+#section p{
+  text-align: justify;
+  font-size: 18px;
+}
