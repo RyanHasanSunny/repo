@@ -1,7 +1,7 @@
 
 #aboutme-content{
   padding: 50px;
-  justify-content: center;
+  justify-content: space-between;
   
 }
 
@@ -9,12 +9,12 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
+  
   width: 100%;
   padding-bottom: 50px; 
-  gap: 20px;
-  border-bottom: 10px;
+  gap: 100px;
   border-bottom: .1rem solid rgba(131, 110, 70, 0.11);
+  justify-content: center;
 
 }
 
@@ -69,7 +69,7 @@
  }
 
  #workingdetails {
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   padding-top: 40px;
   display: flex;
@@ -88,8 +88,10 @@ margin-bottom: 0%;
  #workingdetails p{
   font-family:Impact;
   font-size: 35px ;
-  border-bottom: 1rem solid rgb(64, 143, 94);
-  border-radius: 10px;
+  border-bottom: .6rem solid rgba(128, 128, 0, 0.123);
+  border-radius: 6px;
+
+ 
    }
 
 
@@ -133,9 +135,9 @@ padding-top: 10px;
 
 #section .details{
   justify-content: space-around;
-  border-left: .1rem solid olive ;
+  border-left: .1rem solid rgba(128, 128, 0, 0.322) ;
   padding-inline: 30px;
-  width: 70%;
+  width: 80%;
 }
 
 
