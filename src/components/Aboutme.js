@@ -92,8 +92,8 @@ const Aboutme = () => {
           <div className="title">
             <h2>About me</h2>
           </div>
-          <div className="Line">
-          </div>
+          {/* <div className="Line">
+          </div> */}
           <div className="details">
             <p>
               Ryan Hasan Sunny is a skilled 3D artist, graphic designer, and
@@ -118,8 +118,8 @@ const Aboutme = () => {
           <div className="title">
             <h2>Skills</h2>
           </div>
-          <div className="Line">
-          </div>
+          {/* <div className="Line">
+          </div> */}
           <div className="details">
 
           <div className="Items">

@@ -133,7 +133,9 @@ padding-top: 10px;
 
 #section .details{
   justify-content: space-around;
-  width: 60%;
+  border-left: .1rem solid olive ;
+  padding-inline: 30px;
+  width: 70%;
 }
 
 
