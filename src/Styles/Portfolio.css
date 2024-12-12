@@ -1,26 +1,18 @@
-.portfolio { 
-
-  /* background: linear-gradient(
-    180deg,
-    rgb(0, 0, 0),
-    rgba(14, 0, 0, 0.808)
-  ); */
+.portfolio {
   width: 100%;
   cursor: none;
 }
 
 /* Navbar Styles */
-
-.navbarbordar{
-  width:fit-content;
+.navbarbordar {
+  width: fit-content;
   position: sticky;
   padding-top: 30px;
   top: 0;
   z-index: 10;
-  
 }
+
 .navbar {
-  
   padding-top: 10px;
   backdrop-filter: blur(5px);
   background-color: #16130fda;
@@ -33,14 +25,12 @@
   padding-inline: 20px;
   margin-bottom: 50px;
   box-shadow: 0px 5px 20px rgb(19, 17, 11);
-  
 }
 
 .navbar-list {
   display: flex;
   justify-content: center;
   list-style: none;
-  
   padding: 0;
   margin: 0;
 }
@@ -63,7 +53,7 @@
 
 .portfolio h2 {
   color: beige;
-  font-size: 2rem ;
+  font-size: 2rem;
   margin-bottom: -14px;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
@@ -77,24 +67,17 @@
   color: beige;
 }
 
-
-
 .portfolio .section1 {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
- 
 }
 
 .portfolio .Contants {
-
   align-content: center;
   justify-content: center;
-
 }
-
-
 
 .portfolio .portfolio-list {
   display: flex;
@@ -102,6 +85,93 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 90%;
-  
-  
+}
+
+/* Responsive Design */
+
+/* For screens 1200px and smaller */
+@media screen and (max-width: 1200px) {
+  .navbar {
+    flex-direction: column;
+    padding-block: 10px;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .portfolio h2 {
+    font-size: 1.8rem;
+  }
+
+  .portfolio .portfolio-list {
+    width: 100%;
+  }
+}
+
+/* For screens 992px and smaller */
+@media screen and (max-width: 992px) {
+  .navbar {
+    padding-block: 15px;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .portfolio h2 {
+    font-size: 1.6rem;
+  }
+
+  .portfolio .portfolio-list {
+    gap: 20px;
+    width: 100%;
+  }
+}
+
+/* For screens 768px and smaller */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding-block: 10px;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolio h2 {
+    font-size: 1.4rem;
+  }
+
+  .portfolio .portfolio-list {
+    gap: 15px;
+  }
+}
+
+/* For screens 576px and smaller (mobile) */
+@media screen and (max-width: 576px) {
+  .portfolio h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .navbar {
+    padding-block: 10px;
+    flex-direction: column;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .portfolio .portfolio-list {
+    gap: 10px;
+    width: 100%;
+  }
 }
