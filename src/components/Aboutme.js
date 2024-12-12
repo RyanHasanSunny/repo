@@ -49,8 +49,8 @@ const Aboutme = () => {
                     3+
                   </p>
                 </div>
-                <div className="Line">
-                </div>
+                {/* <div className="Line">
+                </div> */}
                 <div className="Project-Completed">
                   <h2>
                     Project Completed
@@ -59,8 +59,8 @@ const Aboutme = () => {
                     20+
                   </p>
                 </div>
-                <div className="Line">
-                </div>
+                {/* <div className="Line">
+                </div> */}
                 <div className="Clients">
                   <h2>
                     Clients
@@ -69,8 +69,8 @@ const Aboutme = () => {
                     10+
                   </p>
                 </div>
-                <div className="Line">
-                </div>
+                {/* <div className="Line">
+                </div> */}
                 <div className="Hours">
                   <h2>
                     Hours of Designing
@@ -84,8 +84,8 @@ const Aboutme = () => {
           </div>
         </div>
 
-        <div className="Line">
-        </div>
+        {/* <div className="Line">
+        </div> */}
 
         <section id="section" className="aboutme"
         >
