@@ -1,21 +1,17 @@
-
-#aboutme-content{
+#aboutme-content {
   padding: 50px;
   justify-content: space-between;
-  
 }
 
-#Image-name{
+#Image-name {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  
   width: 100%;
-  padding-bottom: 50px; 
+  padding-bottom: 50px;
   gap: 100px;
   border-bottom: .1rem solid rgba(131, 110, 70, 0.11);
   justify-content: center;
-
 }
 
 #img {
@@ -27,7 +23,6 @@
   border-radius: 20px;
   border: 1px solid #d0d3ff49;
   transition: transform 0.3s ease;
-  /* Animation for hover */
 }
 
 #img .imagesize {
@@ -42,119 +37,286 @@
   transform: scale(400px);
 }
 
-
-
-
-#Name{
+#Name {
   width: 100%;
-  
 }
 
-#Name h2{
+#Name h2 {
   font-family: fantasy;
- margin-bottom: 0%;
- font-size: 50px;
+  margin-bottom: 0%;
+  font-size: 50px;
 }
 
-
-#Name p{
+#Name p {
   font-family: fantasy;
   margin-top: 0%;
   font-size: 50px;
- }
+}
 
- #text-content{
+#text-content {
   text-align: left;
-  
- }
+}
 
- #workingdetails {
+#workingdetails {
   justify-content: space-between;
   width: 100%;
   padding-top: 40px;
   display: flex;
   flex-wrap: wrap;
-  justify-items:left;
+  justify-items: left;
   justify-content: left;
-   gap: 60px;
- }
+  gap: 60px;
+}
 
- #workingdetails  h2{
-  font-family:Tahoma;
-font-size: 16px ;
-margin-bottom: 0%;
- }
+#workingdetails h2 {
+  font-family: Tahoma;
+  font-size: 16px;
+  margin-bottom: 0%;
+}
 
- #workingdetails p{
-  font-family:Impact;
-  font-size: 35px ;
+#workingdetails p {
+  font-family: Impact;
+  font-size: 35px;
   border-bottom: .6rem solid rgba(128, 128, 0, 0.123);
   border-radius: 6px;
+}
 
- 
-   }
-
-
-
-
-#section{
+#section {
   color: antiquewhite;
   text-align: left;
   gap: 40px;
- display: flex;
- flex-wrap: wrap;
- justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding-top: 100px;
 }
 
-#section .title{
+#section .title {
   justify-content: space-around;
   width: 200px;
 }
 
-
-#skills{
-
+#skills {
   height: fit-content;
   padding-bottom: 100px;
 }
 
-#skills .tools{
-padding-top: 10px;
- display: flex;
- flex-wrap: wrap;
- gap: 20px;
-  
+#skills .tools {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-#skills .tools .imagesize{
 
+#skills .tools .imagesize {
   aspect-ratio: 1/1;
   max-width: 40px;
-  
 }
 
-#section .details{
+#section .details {
   justify-content: space-around;
-  border-left: .1rem solid rgba(128, 128, 0, 0.322) ;
+  border-left: .1rem solid rgba(128, 128, 0, 0.322);
   padding-inline: 30px;
   width: 80%;
 }
 
-
-
-
-#section .title h2{
- font-family: Impact ;
+#section .title h2 {
+  font-family: Impact;
   justify-content: space-around;
 }
 
-
-#section h2{
+#section h2 {
   text-align: justify;
   font-size: 35px;
 }
 
-#section p{
+#section p {
   text-align: justify;
   font-size: 18px;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 1200px) {
+  #Image-name {
+    gap: 50px;
+  }
+
+  #img .imagesize {
+    width: 250px;
+  }
+
+  #workingdetails {
+    gap: 30px;
+  }
+
+  #section h2 {
+    font-size: 28px;
+  }
+
+  #section p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #Image-name {
+    gap: 30px;
+  }
+
+  #img .imagesize {
+    width: 200px;
+  }
+
+  #workingdetails {
+    gap: 20px;
+  }
+
+  #section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #section h2 {
+    font-size: 30px;
+  }
+
+  #section p {
+    font-size: 16px;
+  }
+
+  #skills .tools .imagesize {
+    max-width: 35px;
+  }
+
+  #section .details {
+    width: 100%;
+    border-left: none;
+    padding-inline: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #aboutme-content {
+    padding: 30px;
+  }
+
+  #Name h2 {
+    font-size: 40px;
+  }
+
+  #Name p {
+    font-size: 40px;
+  }
+
+  #Image-name {
+    gap: 20px;
+  }
+
+  #img .imagesize {
+    width: 180px;
+  }
+
+  #workingdetails {
+    gap: 10px;
+  }
+
+  #section h2 {
+    font-size: 26px;
+  }
+
+  #section p {
+    font-size: 14px;
+  }
+
+  #skills .tools {
+    gap: 10px;
+  }
+
+  #section .title {
+    width: 100%;
+  }
+
+  #section .details {
+    width: 100%;
+    padding-inline: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #aboutme-content {
+    padding: 20px;
+  }
+
+  #Name h2 {
+    font-size: 30px;
+  }
+
+  #Name p {
+    font-size: 30px;
+  }
+
+  #Image-name {
+    gap: 10px;
+  }
+
+  #img .imagesize {
+    width: 150px;
+  }
+
+  #workingdetails {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  #section h2 {
+    font-size: 22px;
+  }
+
+  #section p {
+    font-size: 14px;
+  }
+
+  #skills .tools {
+    gap: 5px;
+  }
+
+  #section .title {
+    width: 100%;
+  }
+
+  #section .details {
+    width: 100%;
+    padding-inline: 5px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #aboutme-content {
+    padding: 15px;
+  }
+
+  #Name h2 {
+    font-size: 25px;
+  }
+
+  #Name p {
+    font-size: 25px;
+  }
+
+  #img .imagesize {
+    width: 130px;
+  }
+
+  #section h2 {
+    font-size: 20px;
+  }
+
+  #section p {
+    font-size: 12px;
+  }
+
+  #skills .tools .imagesize {
+    max-width: 30px;
+  }
 }
