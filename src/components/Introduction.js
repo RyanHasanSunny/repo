@@ -8,8 +8,8 @@ import { motion } from "framer-motion"; // Import framer-motion
 
 const Introduction = () => {
   const [welcomeText, setWelcomeText] = useState("WELCOME TO");
-  const [name, setName] = useState("RYAN");
-  const [subtitle, setSubtitle] = useState("Graphic Boy.");
+  const [name, setName] = useState("");
+  const [subtitle, setSubtitle] = useState("");
   // const [imageUrl, setImageUrl] = useState(""); // State for the side image URL
 
   const cursor = useRef(null);

@@ -1,82 +1,141 @@
+/* Base Styles */
 .portfolio-item {
-    max-height: auto;
-    padding: 5px;
-    justify-items: center;
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    justify-content:center;
+  max-height: auto;
+  padding: 1%; /* Changed to relative unit */
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center items horizontally */
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transform: scale(0.95);
+  width: 100%; /* Ensure it takes full width of its container */
+  box-sizing: border-box; /* Include padding in width */
+}
 
-    transition: transform 0.4s ease-out;
+.portfolio-item:hover {
+  transform: translateY(-5px) scale(1); /* Combine hover effects */
+}
 
-    transform: scale(0.95);
-    
+.portfolio .Imageplaceholder {
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  border-radius: 10%;
+  position: relative; /* To contain the image absolutely */
+  overflow: hidden;
+  z-index: -1;
+}
+
+.portfolio-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: transform 0.4s ease-out;
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.05); /* Slight scale-up on hover */
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column; /* Changed to column for better responsiveness */
+  align-items: center; /* Center content */
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: 1em 0; /* Add some spacing */
+}
+
+.portfolio-content h3 {
+  margin: 0;
+  font-size: 1.2rem; /* Increased for better readability */
+  color: #ffffff;
+  text-align: center;
+}
+
+.view-btn {
+  text-decoration: none;
+  background-color: #3a3a3aea;
+  color: white;
+  padding: 0.8em 1.5em; /* Use relative padding */
+  border-radius: 5px;
+  margin-top: 1em;
+  cursor: pointer; /* Changed to pointer for better UX */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: #36e909d7;
+}
+
+.portfolio-item.scale-up {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Responsive Styles */
+
+/* Tablets and Small Desktops */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .portfolio .Imageplaceholder {
+      padding-top: 75%; /* Adjust aspect ratio */
   }
 
-  
-  .portfolio-item:hover {
-   
-    transform: translateY(-5px); /* Slight lift on hover */
-  }
-
-  .portfolio .Imageplaceholder{
-
-   width: 400px;
-    height: 400px;
-    border-radius: 10%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  
-  .portfolio-image {
-
-    width: 400px;
-    transition: transform 0.4s ease-out;
-    
-  }
-
-  .portfolio-item:hover .portfolio-image {
-    transform: scale(1.05); /* Slight scale-up on hover */
-  }
-  
-  .portfolio-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-grow: 1;
-  }
-  
   .portfolio-content h3 {
-    margin: 0;
-    font-size: 1rem;
-    font-optical-sizing: 1rem ;
-    color: #ffffff;
+      font-size: 1.1rem;
   }
-  
+
   .view-btn {
-    text-decoration: none;
-    background-color: #3a3a3aea;
-    color: white;
-    padding: 10px 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    justify-content: space-around;
-    cursor: none;
-
-
-    text-align: center;
+      padding: 0.7em 1.2em;
   }
-  
-  .view-btn:hover {
-    background-color: #36e909d7;
-  }
-  
+}
+
+/* Mobile Devices */
+@media (max-width: 599px) {
   .portfolio-item {
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-    transform: scale(0.95);
+      padding: 2%; /* Adjust padding for smaller screens */
   }
-  
-  .portfolio-item.scale-up {
-    transform: scale(1);
-    opacity: 1;
+
+  .portfolio .Imageplaceholder {
+      padding-top: 100%; /* Maintain 1:1 aspect ratio */
   }
+
+  .portfolio-content {
+      padding: 0.5em 0;
+  }
+
+  .portfolio-content h3 {
+      font-size: 1rem;
+  }
+
+  .view-btn {
+      padding: 0.6em 1em;
+      font-size: 0.9rem;
+  }
+}
+
+/* Large Desktops */
+@media (min-width: 1025px) {
+  .portfolio-item {
+      width: 45%; /* Two items per row with some spacing */
+      margin: 2.5%; /* Add margin for spacing */
+  }
+
+  .portfolio .Imageplaceholder {
+      padding-top: 100%; /* 1:1 Aspect Ratio */
+  }
+
+  .portfolio-content h3 {
+      font-size: 1.3rem;
+  }
+
+  .view-btn {
+      padding: 1em 2em;
+      font-size: 1rem;
+  }
+}

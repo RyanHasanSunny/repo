@@ -116,60 +116,136 @@
 }
 
 
-/* Media Queries for smaller screens */
-
-@media screen and (max-width: 1024px) {
-  .text-content {
-    text-align: center;
-    justify-content: center;
+/* Large Desktops and Extra Large Screens */
+@media screen and (min-width: 1200px) {
+  #introduction-title .title h2 {
+      font-size: 4rem;
   }
 
-  .buttons {
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .text-content h1 {
-    font-size: 8rem; /* Smaller font size for h1 */
+  #text-content h1 {
+      font-size: 3rem;
   }
 
-  .text-content h2 {
-    font-size: 3rem; /* Smaller font size for h2 */
+  #text-content h2 {
+      font-size: 2.5rem;
   }
 
-  .text-content h3 {
-    font-size: 3rem; /* Smaller font size for h3 */
-  }
-  .text-content {
-    text-align: center;
-    justify-content: center;
+  #text-content h3 {
+      font-size: 2.5rem;
   }
 
-  .buttons {
-    justify-content: center;
+  .buttons .btn {
+      padding: 1em 2em;
+      font-size: 1.1rem;
   }
 }
 
+/* Desktops and Laptops */
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+  #introduction-title .title h2 {
+      font-size: 3.5rem;
+  }
+
+  #text-content h1 {
+      font-size: 2.8rem;
+  }
+
+  #text-content h2 {
+      font-size: 2.3rem;
+  }
+
+  #text-content h3 {
+      font-size: 2.3rem;
+  }
+
+  .buttons .btn {
+      padding: 0.9em 1.8em;
+      font-size: 1rem;
+  }
+}
+
+/* Tablets and Small Laptops */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #introduction-title .title h2 {
+      font-size: 3rem;
+  }
+
+  #text-content h1 {
+      font-size: 2.5rem;
+  }
+
+  #text-content h2 {
+      font-size: 2rem;
+  }
+
+  #text-content h3 {
+      font-size: 2rem;
+  }
+
+  .buttons .btn {
+      padding: 0.8em 1.6em;
+      font-size: 0.95rem;
+  }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 767px) {
+  #introduction-section {
+      padding: 1.5em;
+  }
+
+  #introduction-title .title h2 {
+      font-size: 2.5rem;
+  }
+
+  #text-content h1 {
+      font-size: 2rem;
+  }
+
+  #text-content h2 {
+      font-size: 1.5rem;
+  }
+
+  #text-content h3 {
+      font-size: 1.5rem;
+  }
+
+  .buttons .btn {
+      padding: 0.7em 1.4em;
+      font-size: 0.9rem;
+  }
+
+  #home-content-header {
+      padding-top: 3em;
+      gap: 1em;
+  }
+}
+
+/* Small Mobile Devices */
 @media screen and (max-width: 480px) {
-  .text-content h1 {
-    font-size: 2rem; /* Mobile screen adjustment */
-    margin-bottom: -10px;
+  #introduction-title .title h2 {
+      font-size: 2rem;
   }
 
-  .text-content h2 {
-    font-size: 1rem; /* Mobile adjustment for h2 */
+  #text-content h1 {
+      font-size: 1.8rem;
   }
 
-  .text-content h3 {
-    font-size: 1rem; /* Mobile adjustment for h3 */
-  }
-  .text-content {
-    text-align: center;
-    justify-content: center;
+  #text-content h2 {
+      font-size: 1.2rem;
   }
 
-  .buttons {
-    justify-content: center;
+  #text-content h3 {
+      font-size: 1.2rem;
+  }
+
+  .buttons .btn {
+      padding: 0.6em 1.2em;
+      font-size: 0.8rem;
+  }
+
+  #home-content-header {
+      padding-top: 2em;
+      gap: 0.8em;
   }
 }
