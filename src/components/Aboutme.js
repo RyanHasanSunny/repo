@@ -153,11 +153,78 @@ const Aboutme = () => {
             </div>
             <div id="skills">
               <p>
-                Programing 
+                Web Design 
               </p>
 
               <div className="tools">
-               
+              <img className="imagesize" src={ps} alt="ps" />
+                <img className="imagesize" src={ai} alt="ai" />
+                <img className="imagesize" src={id} alt="id" />
+                <img className="imagesize" src={figma} alt="figma" />
+                <img className="imagesize" src={bl} alt="ps" />
+                <img className="imagesize" src={autodesk3ds} alt="ai" />
+                <img className="imagesize" src={xd} alt="id" />
+              </div>
+
+            </div>
+            </div>
+
+          </div>
+        </section>
+
+
+
+        <section id="section" className="Exprience"
+        >
+          <div className="title">
+            <h2>Exprience</h2>
+          </div>
+          {/* <div className="Line">
+          </div> */}
+          <div className="details">
+
+          <div className="Items">
+
+          
+            <div id="skills">
+              <p>
+                Graphic Design
+              </p>
+
+              <div className="tools">
+                <img className="imagesize" src={ps} alt="ps" />
+                <img className="imagesize" src={ai} alt="ai" />
+                <img className="imagesize" src={id} alt="id" />
+                <img className="imagesize" src={figma} alt="figma" />
+                <img className="imagesize" src={bl} alt="ps" />
+                <img className="imagesize" src={autodesk3ds} alt="ai" />
+                <img className="imagesize" src={xd} alt="id" />
+              </div>
+
+            </div>
+            <div id="skills">
+              <p>
+                Game Development
+              </p>
+              <div className="tools">
+                
+
+              </div>
+
+            </div>
+            <div id="skills">
+              <p>
+                Web Design 
+              </p>
+
+              <div className="tools">
+              <img className="imagesize" src={ps} alt="ps" />
+                <img className="imagesize" src={ai} alt="ai" />
+                <img className="imagesize" src={id} alt="id" />
+                <img className="imagesize" src={figma} alt="figma" />
+                <img className="imagesize" src={bl} alt="ps" />
+                <img className="imagesize" src={autodesk3ds} alt="ai" />
+                <img className="imagesize" src={xd} alt="id" />
               </div>
 
             </div>

@@ -95,7 +95,7 @@ const Introduction = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
-          setWelcomeText(data.welcomeText || "WELCOME TO");
+          setWelcomeText(data.welcomeText || "");
           setName(data.name || "");
           setSubtitle(data.subtitle || "");
           // setImageUrl(data.image || ""); // Set the initial image URL if available
