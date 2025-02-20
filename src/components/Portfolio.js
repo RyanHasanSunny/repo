@@ -10,10 +10,10 @@ const Navbar = () => (
   <div className="navbarbordar">
   <div className="navbar">
     <ul className="navbar-list">
-      <li><a href="#all-items">All Items</a></li>
-      <li><a href="#category1">Category 1</a></li>
-      <li><a href="#category2">Category 2</a></li>
-      <li><a href="#category3">Category 3</a></li>
+      <li><a href="#all-items">All</a></li>
+      <li><a href="#category1">Graphic Design</a></li>
+      <li><a href="#category2">3D Modeling</a></li>
+      <li><a href="#category3">Web Development</a></li>
     </ul>
   </div>
   </div>

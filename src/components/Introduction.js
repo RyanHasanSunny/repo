@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { db } from "./firebaseConfig"; // Import your Firestore configuration
 import { doc, getDoc } from "firebase/firestore";
 import "../Styles/Introduction.css";
-import "../Styles/Style.css";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion"; // Import framer-motion
 

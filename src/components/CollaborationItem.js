@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/CollaborationItem.css';
+import '../Styles/Style.css';
 
 const CollaborationItem = ({ image, title, description, services }) => {
   return (

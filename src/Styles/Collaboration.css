@@ -1,5 +1,5 @@
 .collaboration {
-  margin-top: 50vh;
+  margin-top: 30vh;
     padding: 50px;
     width: 100%;
     text-align: center;
@@ -10,7 +10,7 @@
   
   .collaboration h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 46pt;
+    font-size: 24pt;
     margin-bottom: 20px;
     color: antiquewhite; /* Main accent color */
     padding-block: 15px;

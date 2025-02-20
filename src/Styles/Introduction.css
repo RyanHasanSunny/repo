@@ -1,24 +1,15 @@
 #introduction-section {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 30px;
   max-height: max-content;
+  width: 100%;
   min-height: 100vh;
-  
-
   background-blend-mode: multiply;
   cursor: none;
- /* background-image: linear-gradient(
-      180deg,
-      rgb(255, 255, 255),
-      rgb(255, 0, 0)
-    ),
-    url("../assets/Background.png");*/
     
 }
 
 #home-content h2 {
-  margin-bottom: -14px;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
 
@@ -41,7 +32,6 @@
  align-content: center;
   width: 100%;
   overflow: hidden;
-  margin-inline: 100px;
   gap: 100px;
   cursor: none;
   
@@ -53,7 +43,6 @@
   width: 100%; 
   top: 0; 
   z-index: 10; 
-  padding-bottom: 100px ; 
 }
 
 
@@ -61,14 +50,9 @@
 #introduction-title .title h2 {
   text-align: center;
   height: fit-content;
-  width: 100%;
   position: -webkit-sticky; /* Safari */
-  position: sticky;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: 900;
-  font-size: 3rem;
-  z-index: 10;
-  
+
 }
 
 
@@ -90,7 +74,7 @@
 
 #text-content h2 {
   font-size: 2rem;
-  letter-spacing: 5px;
+  letter-spacing: 30px;
   font-weight: normal;
   margin-bottom: 60px;
   cursor: none;
@@ -119,7 +103,7 @@
 /* Large Desktops and Extra Large Screens */
 @media screen and (min-width: 1200px) {
   #introduction-title .title h2 {
-      font-size: 4rem;
+      font-size: 24pt;
   }
 
   #text-content h1 {
@@ -127,7 +111,7 @@
   }
 
   #text-content h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
   }
 
   #text-content h3 {
@@ -143,7 +127,7 @@
 /* Desktops and Laptops */
 @media screen and (min-width: 1025px) and (max-width: 1199px) {
   #introduction-title .title h2 {
-      font-size: 3.5rem;
+      font-size: 24pt;
   }
 
   #text-content h1 {
@@ -167,7 +151,7 @@
 /* Tablets and Small Laptops */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #introduction-title .title h2 {
-      font-size: 3rem;
+      font-size: 22pt;
   }
 
   #text-content h1 {
@@ -195,7 +179,7 @@
   }
 
   #introduction-title .title h2 {
-      font-size: 2.5rem;
+      font-size: 22pt;
   }
 
   #text-content h1 {
@@ -224,7 +208,7 @@
 /* Small Mobile Devices */
 @media screen and (max-width: 480px) {
   #introduction-title .title h2 {
-      font-size: 2rem;
+      font-size: 18pt;
   }
 
   #text-content h1 {
@@ -233,6 +217,7 @@
 
   #text-content h2 {
       font-size: 1.2rem;
+      letter-spacing: 10px;
   }
 
   #text-content h3 {

@@ -1,10 +1,9 @@
 
   
   .collaboration p {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    text-align: justify;
+    text-align:left;
     color:antiquewhite; /* Darker text for contrast */
+    font-size: 14pt;
   }
 
   
@@ -16,7 +15,7 @@
     height: fit-content;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  
+  padding: 2%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -58,7 +57,8 @@
   
   .collaboration-title {
     text-align: left; /* Align text to the left */
-    font-size: 2rem; /* Title font size */
+    font-size: 16pt; /* Title font size */
+   font-weight: bold;
     color: antiquewhite; /* Darker text color */
     margin-bottom: 10px; /* Space below title */
   }
@@ -83,7 +83,7 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    gap: 2%;
+    gap: 6%;
     text-align: left;
     font-size: 12pt; /* Description font size */
     color: rgb(145, 136, 124); /* Lighter text color for description */

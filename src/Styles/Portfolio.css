@@ -13,7 +13,7 @@
   position: sticky;
   justify-items: center;
   width: 100%;
-  padding-top: 30px;
+
   top: 0;
   z-index: 10;
 }
@@ -25,7 +25,7 @@
   filter: grayscale(10px);
   display: flex;
   width: fit-content;
-  border-radius: 50px;
+  border-radius: 20px;
   border: .5px solid;
   border-color: rgba(240, 248, 255, 0.274);
   padding-block: 20px;
@@ -48,9 +48,9 @@
 
 .navbar-list a {
   cursor: none;
-  color: white;
+  color: antiquewhite;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 12pt;
   transition: color 0.3s;
 }
 
@@ -99,13 +99,14 @@
 /* For screens 1200px and smaller */
 @media screen and (max-width: 1200px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     padding-block: 10px;
+    margin-top: 10px;
   }
 
   .navbar-list {
-    flex-direction: column;
-    margin-top: 10px;
+    flex-direction: row;
+   
   }
 
   .portfolio h2 {
@@ -117,57 +118,11 @@
   }
 }
 
-/* For screens 992px and smaller */
-@media screen and (max-width: 992px) {
-  .navbar {
-    padding-block: 15px;
-  }
-
-  .navbar-list {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .portfolio h2 {
-    font-size: 1.6rem;
-  }
-
-  .portfolio .portfolio-list {
-    gap: 20px;
-    width: 100%;
-  }
-}
-
-/* For screens 768px and smaller */
-@media screen and (max-width: 768px) {
-
-  .navbarbordar {
-    justify-items: right;
-   
-  }
-  .navbar {
-    flex-direction: column;
-    padding-block: 10px;
-  }
-
-  .navbar-list {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .portfolio h2 {
-    font-size: 1.4rem;
-  }
-
-  .portfolio .portfolio-list {
-    gap: 15px;
-  }
-}
 
 /* For screens 576px and smaller (mobile) */
 @media screen and (max-width: 576px) {
   .portfolio h2 {
-    font-size: 1.2rem;
+    font-size: 12pt;
     text-align: center;
   }
 
@@ -176,6 +131,7 @@
 
     flex-direction: column;
   }
+
 
   .navbar-list {
     flex-direction: column;
@@ -186,5 +142,11 @@
   .portfolio .portfolio-list {
     gap: 10px;
     width: 100%;
+  }
+
+  .navbarbordar {
+   
+    position: relative;
+   
   }
 }

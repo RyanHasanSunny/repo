@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Collaboration.css';
+import '../Styles/Style.css';
 import CollaborationItem from '../components/CollaborationItem';
 import Item1 from '../assets/ring2.png';
 import Item2 from '../assets/ring2.png';
