@@ -1,29 +1,30 @@
 .collaboration {
+  margin-top: 50vh;
     padding: 50px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0),rgba(43, 43, 43, 0.062));
+    width: 100%;
     text-align: center;
-    animation: appear forwards;
-    animation-timeline: view();
-    animation-range: entry 0;
+    display: flex;
+    flex-direction: column;
   }
 
   
   .collaboration h2 {
-    font-size: 2.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 46pt;
     margin-bottom: 20px;
-    color: #ffffff; /* Main accent color */
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.062),rgba(43, 43, 43, 0.062));
+    color: antiquewhite; /* Main accent color */
     padding-block: 15px;
   }
   
   
   .collaboration-grid {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     justify-items: center;
-    gap: 20px; /* Space between cards */
-    margin: 0 auto; /* Center the grid */
+    gap: 100px; /* Space between cards */
+    margin-top: 50px; /* Center the grid */
   }
   
  

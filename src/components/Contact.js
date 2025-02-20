@@ -4,7 +4,22 @@ import '../Styles/Contact.css';
 const Contact = () => {
   return (
     <section className="contact">
-      <h2>Contact</h2>
+
+<div className="contact-Content">
+      <div className="contact-info">
+        <h3>Contact Information</h3>
+        <p>
+          <strong>Address:</strong> 1234 Street Name, City Name, United States  <br />
+          <strong>Phone:</strong> +123 456 7890 <br />
+          <strong>Email:</strong>
+        </p>
+      </div>
+      <div className="Massage-send">
+      <h2>Send a Message</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+        consectetur mauris sed, et consectetur elit. Nullam consectetur mauris
+        sed, et consectetur elit. </p>
       <form className="contact-form">
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -23,6 +38,8 @@ const Contact = () => {
 
         <button type="submit" className="submit-btn">Send Message</button>
       </form>
+      </div>
+      </div>
     </section>
   );
 };

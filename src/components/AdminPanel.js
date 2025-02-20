@@ -34,7 +34,6 @@ const AdminPanel = ({ setIsAuthenticated }) => {
         setIsAuthenticated(true);
       } else {
         setIsAuthenticated(false);
-        
       }
     });
 
