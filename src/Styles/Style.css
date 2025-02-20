@@ -82,12 +82,13 @@ h3 {
 
 
 .connect-btn {
-    display: inline-block;
+
     padding: 12px 30px;
     background-color: #464646;
     color: antiquewhite;
     font-size: 1.2rem;
     font-weight: bold;
+    justify-content: space-between;
     border-radius: 10px;
     text-decoration: none;
     cursor: none;

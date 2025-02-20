@@ -7,6 +7,22 @@
   background-color: #ffffff;
 }
 
+.admin-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.admin-header h1 {
+    font-size: 2.5rem;
+    color: #200a49;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.062), rgba(43, 43, 43, 0.062));
+    padding-block: 15px;
+}
+
 .panel {
     justify-content: space-between;
    text-align: center;
@@ -63,15 +79,33 @@ input[type="file"] {
   border: 1px solid #ccc;
 }
 
-button {
+
+.content {
+  padding: 10px;
+ display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+
+.button {
   padding: 10px 15px;
   margin-top: 20px;
-  background-color: #5a67d8;
+  background-color: #9f5ad8;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+
+.admin-panel.buttons {
+    display: flex;
+    gap: 10px;
+    flex-direction: row-reverse;
+  }
+  
 
 button:hover {
   background-color: #434190;

@@ -42,7 +42,7 @@
   align-items: center;
   width: 100%; 
   top: 0; 
-  z-index: 10; 
+  z-index: -10; 
 }
 
 
@@ -58,8 +58,6 @@
 
 #text-content h1 {
   font-weight: bold;
-  margin-bottom: -20px;
-  margin-top: -60px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   cursor: none;
 }
@@ -68,25 +66,22 @@
   text-transform: capitalize;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 2rem;
-  margin-top: 20px;
   cursor: none;
 }
 
 #text-content h2 {
   font-size: 2rem;
-  letter-spacing: 30px;
+  letter-spacing: 5px;
   font-weight: normal;
-  margin-bottom: 60px;
   cursor: none;
 }
 
 #home-content-header {
   align-content: center;
   cursor: none;
-  align-items:end;
-  padding-top: 200px;
-  position: sticky;
-  gap: 30px;
+  align-items:center;
+  display: flex;
+  
  
 }
 
@@ -94,6 +89,7 @@
   display: flex;
   align-content: center;
   text-align: center;
+gap: 10px;
   flex-direction: column;
  
 
@@ -111,11 +107,11 @@
   }
 
   #text-content h2 {
-      font-size: 2rem;
+      font-size: 24pt;
   }
 
   #text-content h3 {
-      font-size: 2.5rem;
+      font-size: 100pt;
   }
 
   .buttons .btn {
@@ -135,7 +131,7 @@
   }
 
   #text-content h2 {
-      font-size: 2.3rem;
+      font-size: 48pt;
   }
 
   #text-content h3 {

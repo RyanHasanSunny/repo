@@ -195,21 +195,30 @@ const AdminPanel = ({ setIsAuthenticated }) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading data: {error.message}</div>;
 
+
+
+
+
   return (
-    <div className="admin-panel">
+    <section className="admin-panel">
+      <div className="admin-header">
       <h1>Admin Panel</h1>
+     <div className='buttons'> 
       <button onClick={handleLogout}>Logout</button>
       <button onClick={() => navigate("/")}>Back to Home</button>
-
+      </div>
+      </div>
       {/* Introduction Section */}
-      <section>
-        <h2>Edit Introduction</h2>
+      <div className="admin-intro">
+        <h1>Edit Introduction</h1>
+        <div className="content">
         <input type="text" value={welcomeText} onChange={(e) => setWelcomeText(e.target.value)} placeholder="Welcome Text" />
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
         <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} placeholder="Subtitle" />
         <input type="file" accept="image/*" onChange={handleImageUpload} />
         {imageUploadLoading ? <p>Uploading...</p> : <button onClick={handleSaveIntroduction}>Save Introduction</button>}
-      </section>
+      </div>
+      </div>
 
       {/* Articles Section */}
       <section>
@@ -262,7 +271,7 @@ const AdminPanel = ({ setIsAuthenticated }) => {
         <input type="file" accept="image/*" onChange={handlePortfolioImageUpload} />
         <button onClick={handleAddPortfolioItem}>Add Portfolio Item</button>
       </section>
-    </div>
+    </section>
   );
 };
 
