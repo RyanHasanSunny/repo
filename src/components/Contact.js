@@ -45,7 +45,7 @@ const Contact = () => {
 
     // Send form data to the backend
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://rgbserver.onrender.com/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,18 +71,46 @@ const Contact = () => {
       <div className="contact-Content">
         <div className="contact-info">
           <h3>Contact Information</h3>
+          <div className="contact-info-item">
           <p>
-            <strong>Address:</strong> 1234 Street Name, City Name, United States <br />
-            <strong>Phone:</strong> +123 456 7890 <br />
-            <strong>Email:</strong> info@example.com
+            <strong>Address:</strong> Dhaka, Bangladesh <br />
+            <strong>Phone:</strong> +8801799340834 <br />
+            <strong>Email:</strong> ryanhasansunny31@gmail.com
           </p>
+
+          <div className="social-media">
+            <a
+              href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i className="fab"> Facebook</i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i className="fab"> Artstation</i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i className="fab"> Linkedin</i>
+            </a>
+            
+            </div>
+          </div>
+
         </div>
         <div className="Massage-send">
           <h2>Send a Message</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            consectetur mauris sed, et consectetur elit. Nullam consectetur mauris
-            sed, et consectetur elit.
+            You can send me a message using the form below. I'll get back to you as soon as possible.
           </p>
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">

@@ -1,18 +1,51 @@
 #contact {
-    padding: 50px;
+    padding: 2%;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    cursor: none;
   }
 
 
   .contact-Content {
     display: flex;
     flex-direction: column-reverse;
+    gap: 100px;
+    width: 100%;
+    cursor: none;
+  }
+
+  .contact-info-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+    cursor: none;
+  }
+
+  .social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+    cursor: none;
+  }
+  .fab {
+    height: fit-content;
     justify-content: space-around;
     align-items: center;
-    gap: 100px;
+    padding-inline: 10%;
+    
+    border-radius: 40px;
+    text-align: center;
+    color: #ffffff;
+
     width: 100%;
     overflow: hidden;
     cursor: none;
@@ -24,7 +57,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 20px;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
     cursor: none;
   }
@@ -46,12 +79,14 @@
   .contact-form {
     max-width: 100%;
     margin: 0 auto;
+    cursor: none;
 
   }
   
   .form-group {
     margin-bottom: 20px;
     color: #ffffff;
+    cursor: none;
   }
   
   .form-group label {
@@ -59,10 +94,12 @@
     font-weight:normal;
     margin-bottom: 5px;
     color: #ffffff;
+    cursor: none;
   }
   
   .form-group input {
     color: #ffffff;
+    cursor: none;
   }
   .form-group input,
   .form-group textarea {
@@ -74,12 +111,14 @@
     color: #ffffff;
     font-size: 1rem;
     outline: none;
+    cursor: none;
     transition: border-color 0.3s;
   }
   
   .form-group input:focus,
   .form-group textarea:focus {
     border-color: #007bff;
+    cursor: none;
   }
   
   .submit-btn {
@@ -91,7 +130,7 @@
     border: none;
     border-radius: 5px;
     font-size: 1rem;
-    cursor: pointer;
+    cursor: none;
     transition: background-color 0.3s;
   }
   
