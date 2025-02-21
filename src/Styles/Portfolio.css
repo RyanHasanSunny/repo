@@ -58,6 +58,11 @@
   color: #ff6347; /* Add a hover effect */
 }
 
+.navbar-list a.active {
+  font-weight: bold;
+  color: #007bff; /* Change to your preferred highlight color */
+}
+
 .portfolio h2 {
   color: beige;
   font-size: 2rem;
@@ -108,6 +113,9 @@
     flex-direction: row;
    
   }
+
+
+  
 
   .portfolio h2 {
     font-size: 1.8rem;

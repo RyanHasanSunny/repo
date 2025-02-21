@@ -6,8 +6,27 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import '../Styles/AdminPanel.css';
 
+
+
+
 const AdminPanel = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
+
+  // Use onAuthStateChanged to track authentication state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+        navigate('/login'); // Redirect to login if user is not authenticated
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup subscription
+  }, [navigate, setIsAuthenticated]);
+
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageUploadLoading, setImageUploadLoading] = useState(false);
@@ -18,47 +37,34 @@ const AdminPanel = ({ setIsAuthenticated }) => {
   const [subtitle, setSubtitle] = useState("Graphic Boy.");
   const [imageUrl, setImageUrl] = useState("");
 
-  // Articles state
-  const [articles, setArticles] = useState([]);
-  const [newArticle, setNewArticle] = useState({ title: '', description: '', image: '', link: '' });
-  const [editingArticle, setEditingArticle] = useState(null);
-
   // Portfolio state
   const [portfolioItems, setPortfolioItems] = useState([]);
-  const [newPortfolioItem, setNewPortfolioItem] = useState({ title: '', description: '', image: '', link: '' });
+  const [newPortfolioItem, setNewPortfolioItem] = useState({
+    title: '',
+    description: '',
+    image: '',
+    link: '',
+    category: '', // New field for category
+  });
   const [editingPortfolioItem, setEditingPortfolioItem] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
-    });
+  // Category state
+  const [categories, setCategories] = useState([]); // Existing categories
+  const [newCategory, setNewCategory] = useState(''); // New category input
+  const [editingCategory, setEditingCategory] = useState(null); // Category being edited
 
-    return () => unsubscribe(); // Cleanup subscription
-  }, [navigate, setIsAuthenticated]);
-  
   // Fetch data from Firestore
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch introduction
-        const querySnapshot = await getDocs(collection(db, "introduction"));
-        if (!querySnapshot.empty) {
-          const introData = querySnapshot.docs[0].data();
+        const introSnapshot = await getDocs(collection(db, "introduction"));
+        if (!introSnapshot.empty) {
+          const introData = introSnapshot.docs[0].data();
           setWelcomeText(introData.welcomeText);
           setName(introData.name);
           setSubtitle(introData.subtitle);
           setImageUrl(introData.image);
-        }
-
-        // Fetch articles
-        const articlesSnapshot = await getDocs(collection(db, "articles"));
-        if (!articlesSnapshot.empty) {
-          const fetchedArticles = articlesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          setArticles(fetchedArticles);
         }
 
         // Fetch portfolio
@@ -67,9 +73,16 @@ const AdminPanel = ({ setIsAuthenticated }) => {
           const fetchedPortfolio = portfolioSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setPortfolioItems(fetchedPortfolio);
         }
+
+        // Fetch categories
+        const categoriesSnapshot = await getDocs(collection(db, "categories"));
+        if (!categoriesSnapshot.empty) {
+          const fetchedCategories = categoriesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          setCategories(fetchedCategories);
+        }
       } catch (error) {
-        setError(error);
-        console.error("Error fetching data: ", error.message);
+        setError(error.message);
+        console.error("Error fetching data: ", error);
       } finally {
         setLoading(false);
       }
@@ -78,17 +91,20 @@ const AdminPanel = ({ setIsAuthenticated }) => {
     fetchData();
   }, []);
 
-  // Introduction Handlers
+  // Save introduction data
   const handleSaveIntroduction = async () => {
-    const introData = { welcomeText, name, subtitle, image: imageUrl };
     try {
+      const introData = { welcomeText, name, subtitle, image: imageUrl };
       const docRef = doc(db, "introductionDocId", "BXORMSgnVvlVBbczIC7J"); // Replace with your document ID
       await updateDoc(docRef, introData);
+      alert("Introduction saved successfully!");
     } catch (error) {
+      setError("Error updating introduction: " + error.message);
       console.error("Error updating introduction: ", error);
     }
   };
 
+  // Handle image upload
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -100,67 +116,102 @@ const AdminPanel = ({ setIsAuthenticated }) => {
       const url = await getDownloadURL(storageRef);
       setImageUrl(url);
     } catch (error) {
+      setError("Error uploading image: " + error.message);
       console.error("Error uploading image: ", error);
     } finally {
       setImageUploadLoading(false);
     }
   };
 
-  // Article Handlers
-  const handleAddArticle = async () => {
-    if (!newArticle.title || !newArticle.description || !newArticle.image || !newArticle.link) {
-      alert('Please fill in all fields.');
+  // Add a new category
+  const handleAddCategory = async () => {
+    if (!newCategory) {
+      alert('Please enter a category name.');
       return;
     }
 
     try {
-      await addDoc(collection(db, "articles"), newArticle);
-      setNewArticle({ title: '', description: '', image: '', link: '' });
+      await addDoc(collection(db, "categories"), { name: newCategory });
+      setCategories([...categories, { id: Date.now().toString(), name: newCategory }]); // Update local state
+      setNewCategory(''); // Clear input
+      alert("Category added successfully!");
     } catch (error) {
-      console.error("Error adding article: ", error);
+      setError("Error adding category: " + error.message);
+      console.error("Error adding category: ", error);
     }
   };
 
-  const handleEditArticle = async () => {
-    if (!editingArticle.title || !editingArticle.description) {
-      alert('Please fill in all fields.');
+  // Edit a category
+  const handleEditCategory = async () => {
+    if (!editingCategory || !editingCategory.name) {
+      alert('Please enter a valid category name.');
       return;
     }
 
-    const docRef = doc(db, "articles", editingArticle.id);
-    await updateDoc(docRef, editingArticle);
-    setEditingArticle(null);
+    try {
+      const docRef = doc(db, "categories", editingCategory.id);
+      await updateDoc(docRef, { name: editingCategory.name });
+      setCategories(categories.map(cat => (cat.id === editingCategory.id ? editingCategory : cat))); // Update local state
+      setEditingCategory(null); // Clear editing state
+      alert("Category updated successfully!");
+    } catch (error) {
+      setError("Error updating category: " + error.message);
+      console.error("Error updating category: ", error);
+    }
   };
 
-  const handleDeleteArticle = async (id) => {
-    await deleteDoc(doc(db, "articles", id));
-    setArticles(articles.filter(article => article.id !== id)); // Update state after deletion
+  // Delete a category
+  const handleDeleteCategory = async (id) => {
+    try {
+      await deleteDoc(doc(db, "categories", id));
+      setCategories(categories.filter(cat => cat.id !== id)); // Update local state
+      alert("Category deleted successfully!");
+    } catch (error) {
+      setError("Error deleting category: " + error.message);
+      console.error("Error deleting category: ", error);
+    }
   };
 
-  // Portfolio Handlers
+  // Add portfolio item
   const handleAddPortfolioItem = async () => {
-    if (!newPortfolioItem.title || !newPortfolioItem.image) {
+    if (!newPortfolioItem.title || !newPortfolioItem.image || !newPortfolioItem.category) {
       alert('Please fill in all fields.');
       return;
     }
 
     try {
       await addDoc(collection(db, "portfolio"), newPortfolioItem);
-      setNewPortfolioItem({ title: '', description: '', image: '', link: '' });
+      setNewPortfolioItem({ title: '', description: '', image: '', link: '', category: '' });
+      alert("Portfolio item added successfully!");
     } catch (error) {
+      setError("Error adding portfolio item: " + error.message);
       console.error("Error adding portfolio item: ", error);
     }
   };
 
+  // Edit portfolio item
   const handleEditPortfolioItem = async () => {
-    const docRef = doc(db, "portfolio", editingPortfolioItem.id);
-    await updateDoc(docRef, editingPortfolioItem);
-    setEditingPortfolioItem(null);
+    try {
+      const docRef = doc(db, "portfolio", editingPortfolioItem.id);
+      await updateDoc(docRef, editingPortfolioItem);
+      setEditingPortfolioItem(null);
+      alert("Portfolio item updated successfully!");
+    } catch (error) {
+      setError("Error updating portfolio item: " + error.message);
+      console.error("Error updating portfolio item: ", error);
+    }
   };
 
+  // Delete portfolio item
   const handleDeletePortfolioItem = async (id) => {
-    await deleteDoc(doc(db, "portfolio", id));
-    setPortfolioItems(portfolioItems.filter(item => item.id !== id)); // Update state after deletion
+    try {
+      await deleteDoc(doc(db, "portfolio", id));
+      setPortfolioItems(portfolioItems.filter(item => item.id !== id));
+      alert("Portfolio item deleted successfully!");
+    } catch (error) {
+      setError("Error deleting portfolio item: " + error.message);
+      console.error("Error deleting portfolio item: ", error);
+    }
   };
 
   // Handle portfolio image upload
@@ -175,101 +226,135 @@ const AdminPanel = ({ setIsAuthenticated }) => {
       const url = await getDownloadURL(storageRef);
       setNewPortfolioItem((prev) => ({ ...prev, image: url }));
     } catch (error) {
+      setError("Error uploading image: " + error.message);
       console.error("Error uploading image: ", error);
     } finally {
       setImageUploadLoading(false);
     }
   };
 
-  // Logout Handler
+  // Logout handler
   const handleLogout = async () => {
     try {
       await signOut(auth);
       setIsAuthenticated(false);
-      console.log("Successfully logged out");
+      navigate("/");
+      alert("Successfully logged out!");
     } catch (error) {
+      setError("Logout error: " + error.message);
       console.error("Logout error: ", error);
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading data: {error.message}</div>;
-
-
-
-
+  if (loading) return <div className="loading-spinner">Loading...</div>;
+  if (error) return <div className="error-message">Error: {error}</div>;
 
   return (
     <section className="admin-panel">
       <div className="admin-header">
-      <h1>Admin Panel</h1>
-     <div className='buttons'> 
-      <button onClick={handleLogout}>Logout</button>
-      <button onClick={() => navigate("/")}>Back to Home</button>
-      </div>
-      </div>
-      {/* Introduction Section */}
-      <div className="admin-intro">
-        <h1>Edit Introduction</h1>
-        <div className="content">
-        <input type="text" value={welcomeText} onChange={(e) => setWelcomeText(e.target.value)} placeholder="Welcome Text" />
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
-        <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} placeholder="Subtitle" />
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
-        {imageUploadLoading ? <p>Uploading...</p> : <button onClick={handleSaveIntroduction}>Save Introduction</button>}
-      </div>
+        <h1>Admin Panel</h1>
+        <div className='admin-buttons'>
+          <button className="button" onClick={handleLogout}>Logout</button>
+          <button className="button" onClick={() => navigate("/")}>Back to Home</button>
+        </div>
       </div>
 
-      {/* Articles Section */}
-      <section>
-        <h2>Manage Articles</h2>
-        {articles.map(article => (
-          <div key={article.id}>
-            <h3>{article.title}</h3>
-            <p>{article.description}</p>
-            <img src={article.image} alt={article.title} width="100" />
-            <button onClick={() => setEditingArticle(article)}>Edit</button>
-            <button onClick={() => handleDeleteArticle(article.id)}>Delete</button>
-          </div>
-        ))}
-        {editingArticle && (
-          <div>
-            <input type="text" value={editingArticle.title} onChange={(e) => setEditingArticle({ ...editingArticle, title: e.target.value })} />
-            <input type="text" value={editingArticle.description} onChange={(e) => setEditingArticle({ ...editingArticle, description: e.target.value })} />
-            <button onClick={handleEditArticle}>Save Changes</button>
-            <button onClick={() => setEditingArticle(null)}>Cancel</button>
-          </div>
-        )}
-        <input type="text" value={newArticle.title} onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })} placeholder="Article Title" />
-        <input type="text" value={newArticle.description} onChange={(e) => setNewArticle({ ...newArticle, description: e.target.value })} placeholder="Article Description" />
-        <input type="text" value={newArticle.link} onChange={(e) => setNewArticle({ ...newArticle, link: e.target.value })} placeholder="Article Link" />
-        <button onClick={handleAddArticle}>Add Article</button>
-      </section>
+      {/* Introduction Section */}
+      <div className="admin-sections">
+        <h2>Edit Introduction</h2>
+        <div className="content">
+          <input type="text" value={welcomeText} onChange={(e) => setWelcomeText(e.target.value)} placeholder="Welcome Text" />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+          <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} placeholder="Subtitle" />
+          <input type="file" accept="image/*" onChange={handleImageUpload} />
+          {imageUploadLoading ? <p>Uploading...</p> : <button className="button" onClick={handleSaveIntroduction}>Save Introduction</button>}
+        </div>
+      </div>
 
       {/* Portfolio Section */}
-      <section>
+      <section className='admin-sections'>
         <h2>Manage Portfolio</h2>
-        {portfolioItems.map(item => (
-          <div key={item.id}>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <img src={item.image} alt={item.title} width="100" />
-            <button onClick={() => setEditingPortfolioItem(item)}>Edit</button>
-            <button onClick={() => handleDeletePortfolioItem(item.id)}>Delete</button>
-          </div>
-        ))}
-        {editingPortfolioItem && (
+        <div className="panel-contents">
+          {portfolioItems.map(item => (
+            <div className="added-contents" key={item.id}>
+              <img src={item.image} alt={item.title} width="300" />
+              <p>{item.title}</p>
+              <p>{item.description}</p>
+              <p><strong>Category:</strong> {item.category}</p>
+              <div className='admin-buttons'>
+                <a className='button' href={item.link} target="_blank" rel="noopener noreferrer">View</a>
+                <button className="button" onClick={() => setEditingPortfolioItem(item)}>Edit</button>
+                <button className="button" onClick={() => handleDeletePortfolioItem(item.id)}>Delete</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Add/Edit Portfolio Item Form */}
+        <div>
+          <h3>{editingPortfolioItem ? 'Edit Portfolio Item' : 'Add New Portfolio Item'}</h3>
+          <input type="text" value={newPortfolioItem.title} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, title: e.target.value })} placeholder="Portfolio Item Title" />
+          <input type="text" value={newPortfolioItem.description} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, description: e.target.value })} placeholder="Portfolio Item Description" />
+          <input type="text" value={newPortfolioItem.link} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, link: e.target.value })} placeholder="Portfolio Link" />
+          <input type="file" accept="image/*" onChange={handlePortfolioImageUpload} />
+
+          {/* Category Selection Dropdown */}
           <div>
-            <input type="text" value={editingPortfolioItem.title} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, title: e.target.value })} />
-            <input type="text" value={editingPortfolioItem.description} onChange={(e) => setEditingPortfolioItem({ ...editingPortfolioItem, description: e.target.value })} />
-            <button onClick={handleEditPortfolioItem}>Save Changes</button>
-            <button onClick={() => setEditingPortfolioItem(null)}>Cancel</button>
+            <h4>Select Category:</h4>
+            <select
+              value={newPortfolioItem.category}
+              onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, category: e.target.value })}
+            >
+              <option value="">Select a category</option>
+              {categories.map((category) => (
+                <option key={category.id} value={category.name}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
           </div>
-        )}
-        <input type="text" value={newPortfolioItem.title} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, title: e.target.value })} placeholder="Portfolio Item Title" />
-        <input type="text" value={newPortfolioItem.description} onChange={(e) => setNewPortfolioItem({ ...newPortfolioItem, description: e.target.value })} placeholder="Portfolio Item Description" />
-        <input type="file" accept="image/*" onChange={handlePortfolioImageUpload} />
-        <button onClick={handleAddPortfolioItem}>Add Portfolio Item</button>
+
+          {/* Add New Category */}
+          <div>
+            <h4>Add New Category:</h4>
+            <input type="text" value={newCategory} onChange={(e) => setNewCategory(e.target.value)} placeholder="New Category Name" />
+            <button className="button" onClick={handleAddCategory}>Add Category</button>
+          </div>
+
+          {/* Edit/Delete Category */}
+          <div>
+            <h4>Edit/Delete Category:</h4>
+            <select
+              value={editingCategory ? editingCategory.id : ''}
+              onChange={(e) => {
+                const selectedCategory = categories.find(cat => cat.id === e.target.value);
+                setEditingCategory(selectedCategory || null);
+              }}
+            >
+              <option value="">Select a category to edit/delete</option>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+            {editingCategory && (
+              <div>
+                <input
+                  type="text"
+                  value={editingCategory.name}
+                  onChange={(e) => setEditingCategory({ ...editingCategory, name: e.target.value })}
+                />
+                <button className="button" onClick={handleEditCategory}>Save Changes</button>
+                <button className="button" onClick={() => handleDeleteCategory(editingCategory.id)}>Delete</button>
+              </div>
+            )}
+          </div>
+
+          <button className="button" onClick={editingPortfolioItem ? handleEditPortfolioItem : handleAddPortfolioItem}>
+            {editingPortfolioItem ? 'Save Changes' : 'Add Portfolio Item'}
+          </button>
+        </div>
       </section>
     </section>
   );

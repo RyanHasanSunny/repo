@@ -3,13 +3,16 @@ import '../Styles/PortfolioItem.css';
 
 const PortfolioItem = ({ image, title, link }) => {
   return (
-    <div href={link} className="portfolio-item">
+    <div className="portfolio-item">
       <div className="Imageplaceholder">
-      <img src={image} alt={title} className="portfolio-image" />
+        {link ? (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <img src={image} alt={title} className="portfolio-image" />
+          </a>
+        ) : (
+          <img src={image} alt={title} className="portfolio-image" />
+        )}
       </div>
-      {/* <div className="portfolio-content">
-        <h3>{title}</h3>
-      </div> */}
     </div>
   );
 };
