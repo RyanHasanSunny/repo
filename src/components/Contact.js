@@ -9,6 +9,7 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -43,7 +44,8 @@ const Contact = () => {
       return;
     }
 
-    // Send form data to the backend
+    setLoading(true); // Set loading state
+
     try {
       const response = await fetch('https://rgbserver.onrender.com/send-email', {
         method: 'POST',
@@ -63,50 +65,53 @@ const Contact = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       setErrors({ submit: 'Failed to send message. Please try again later.' });
+    } finally {
+      setLoading(false); // Reset loading state
     }
   };
 
   return (
     <section className="contact">
       <div className="contact-Content">
+        {/* Contact Information Section */}
         <div className="contact-info">
           <h3>Contact Information</h3>
           <div className="contact-info-item">
-          <p>
-            <strong>Address:</strong> Dhaka, Bangladesh <br />
-            <strong>Phone:</strong> +8801799340834 <br />
-            <strong>Email:</strong> ryanhasansunny31@gmail.com
-          </p>
+            <p>
+              <strong>Address:</strong> Dhaka, Bangladesh <br />
+              <strong>Phone:</strong> +8801799340834 <br />
+              <strong>Email:</strong> ryanhasansunny31@gmail.com
+            </p>
 
-          <div className="social-media">
-            <a
-              href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="fab"> Facebook</i>
-            </a>
+            <div className="social-media">
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="bi bi-facebook"></i>
+              </a>
 
-            <a
-              href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="fab"> Artstation</i>
-            </a>
+              <a
+                href="https://www.artstation.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="bi bi-palette"></i>
+              </a>
 
-            <a
-              href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i className="fab"> Linkedin</i>
-            </a>
-            
+              <a
+                href="https://www.linkedin.com/in/ryan-hasan-sunny-4b4b2b1b8/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="bi bi-linkedin"></i>
+              </a>
             </div>
           </div>
-
         </div>
+
+        {/* Message Form Section */}
         <div className="Massage-send">
           <h2>Send a Message</h2>
           <p>
@@ -155,8 +160,8 @@ const Contact = () => {
               {errors.message && <span className="error">{errors.message}</span>}
             </div>
 
-            <button type="submit" className="submit-btn">
-              Send Message
+            <button type="submit" className="submit-btn" disabled={loading}>
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
           {submitted && (

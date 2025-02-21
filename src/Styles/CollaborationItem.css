@@ -1,116 +1,142 @@
+.collaboration p {
+  text-align: left;
+  color: antiquewhite; /* Darker text for contrast */
+  font-size: 12pt;
+}
 
-  
-  .collaboration p {
-    text-align:left;
-    color:antiquewhite; /* Darker text for contrast */
-    font-size: 14pt;
-  }
-
-  
-  .collaboration-card {
-    border: 1px solid #d0d3ff49;
-   
-    border-radius: 10px; /* Rounded corners */
-    max-width: 100%;
-    height: fit-content;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+.collaboration-card {
+  border: 1px solid #d0d3ff49;
+  border-radius: 10px; /* Rounded corners */
+  max-width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
   padding: 2%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: center; /* Align text to the left */
-   
-    
-  }
+  display: flex;
+  flex-direction: row; /* Default layout: row */
+  justify-content: space-between;
+  text-align: center; /* Align text to the left */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
 
-  .collaboration-text {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
-    padding: 2%;
-    justify-content: space-around;
-    text-align: right;
-  }
-  
-  .collaboration-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-  }
-  
-  .collaboration-imageholder{
-  width: 40%;
+.collaboration-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.collaboration-text {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2%;
+  justify-content: space-around;
+  text-align: left; /* Align text to the left */
+}
+
+.collaboration-imageholder {
+  width: 40%; /* Default width for image */
   position: relative; /* To contain the image absolutely */
   overflow: hidden;
   margin: 2%;
-  }
-  
-  .collaboration-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
-    transition: transform 0.4s ease-out;
-  }
-  
-  .collaboration-title {
-    text-align: left; /* Align text to the left */
-    font-size: 16pt; /* Title font size */
-   font-weight: bold;
-    color: antiquewhite; /* Darker text color */
-    margin-bottom: 10px; /* Space below title */
-  }
-  
-  .collaboration-description {
+}
+
+.collaboration-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: transform 0.4s ease-out;
+}
+
+.collaboration-title {
+  text-align: left; /* Align text to the left */
+  font-size: 16pt; /* Title font size */
+  font-weight: bold;
+  color: antiquewhite; /* Darker text color */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.collaboration-description {
+  font-size: 1rem; /* Description font size */
+  color: #666; /* Lighter text color for description */
+  margin-bottom: 15px; /* Space below description */
+}
+
+.collaboration-services_button {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row; /* Default layout: row */
+  gap: 20px; /* Space between services list and button */
+}
+
+.services-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 6%;
+  text-align: left;
+  font-size: 12pt; /* Description font size */
+  color: rgb(145, 136, 124); /* Lighter text color for description */
+  margin-bottom: 15px; /* Space below description */
+}
+
+.services-list li {
+  margin-bottom: 15px; /* Space below description */
+  font-style: italic;
+}
+
+.collaboration-button {
+  position: relative;
+  display: inline-block;
+  height: max-content;
+  width: 100%;
+  max-width: 150px; /* Limit button width */
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #1302ff; /* Button background */
+  color: #fff; /* Button text color */
+  border-radius: 10px; /* Rounded button */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Animation for hover */
+}
+
+.collaboration-button:hover {
+  background-color: #36e909d7; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .collaboration-card {
+    flex-direction: column; /* Stack image and text vertically on mobile */
+    align-items: center;
+    text-align: center;
     
-    font-size: 1rem; /* Description font size */
-    color: #666; /* Lighter text color for description */
-    margin-bottom: 15px; /* Space below description */
-    
+  }
+
+  .collaboration p {
+    text-align: left;
+    font-size: 10pt;
+  }
+
+  .collaboration-imageholder {
+    width: 100%; /* Full width for image on mobile */
+    margin: 0;
+    margin-bottom: 20px; /* Space below image */
+  }
+
+  .collaboration-text {
+    text-align: center; /* Center text on mobile */
   }
 
   .collaboration-services_button {
-    justify-content: space-between;
-    justify-items: center;
-    display: flex;
-    flex-direction: row;
-  }
-  
-
-  .services-list {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 6%;
-    text-align: left;
-    font-size: 12pt; /* Description font size */
-    color: rgb(145, 136, 124); /* Lighter text color for description */
-    margin-bottom: 15px; /* Space below description */
-    
+    flex-direction: column; /* Stack services list and button vertically */
+    gap: 10px; /* Space between services list and button */
   }
 
-  .services-list li {
-    margin-bottom: 15px; /* Space below description */
-    font-style: italic;
-    
-  }
   .collaboration-button {
-    position: relative;
-    display: inline-block;
-    height: max-content;
-    width: 100%;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: #1302ff; /* Button background */
-    color: #fff; /* Button text color */
-    border-radius: 10px; /* Rounded button */
-    text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s ease; /* Animation for hover */
+    max-width: 100%; /* Full width for button on mobile */
   }
-  
-  .collaboration-button:hover {
-    background-color: #36e909d7; /* Darker shade on hover */
-  }
-  
+}

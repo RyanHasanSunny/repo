@@ -1,6 +1,6 @@
 /* Base Styles */
 .portfolio-item {
-  max-height: auto;
+  height: fit-content;
   padding: 1%; /* Changed to relative unit */
   display: flex;
   overflow: hidden;
@@ -9,7 +9,7 @@
   align-items: center; /* Center items horizontally */
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   transform: scale(0.95);
-  width: 100%; /* Ensure it takes full width of its container */
+  width: 50%; /* Ensure it takes full width of its container */
   box-sizing: border-box; /* Include padding in width */
 }
 
@@ -19,8 +19,9 @@
 
 .portfolio .Imageplaceholder {
   width: 100%;
+  height: fit-content;
   padding-top: 100%; /* 1:1 Aspect Ratio */
-  border-radius: 10%;
+  border-radius: 2%;
   position: relative; /* To contain the image absolutely */
   overflow: hidden;
   z-index: -1;
@@ -31,7 +32,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   object-fit: cover; /* Maintain aspect ratio */
   transition: transform 0.4s ease-out;
 }
@@ -82,8 +83,14 @@
 
 /* Tablets and Small Desktops */
 @media (min-width: 600px) and (max-width: 1024px) {
+  .portfolio-item {
+    padding: 2%; /* Adjust padding for smaller screens */
+    width: 100%; /* Two items per row with some spacing */
+    
+}
   .portfolio .Imageplaceholder {
-      padding-top: 75%; /* Adjust aspect ratio */
+      padding-top: 100%; /* Adjust aspect ratio */
+      height: auto;
   }
 
   .portfolio-content h3 {
@@ -99,6 +106,8 @@
 @media (max-width: 599px) {
   .portfolio-item {
       padding: 2%; /* Adjust padding for smaller screens */
+      width: 100%; /* Two items per row with some spacing */
+      
   }
 
   .portfolio .Imageplaceholder {

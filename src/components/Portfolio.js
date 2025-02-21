@@ -15,15 +15,15 @@ const Navbar = ({ categories, onSelectCategory, selectedCategory }) => (
           </a>
         </li>
         {categories.map((category) => (
-         <li key={category.id}>
-  <a
-    href={`#${category.name}`}
-    onClick={() => onSelectCategory(category.name)}
-    className={selectedCategory === category.name ? "active" : ""}
-  >
-    {category.name}
-  </a>
-</li>
+          <li key={category.id}>
+            <a
+              href={`#${category.name}`}
+              onClick={() => onSelectCategory(category.name)}
+              className={selectedCategory === category.name ? "active" : ""}
+            >
+              {category.name}
+            </a>
+          </li>
         ))}
       </ul>
     </div>
@@ -96,6 +96,7 @@ const Portfolio = () => {
           <Navbar
             categories={categories}
             onSelectCategory={setSelectedCategory}
+            selectedCategory={selectedCategory}
           />
           <div className="portfolio-list">
             {filteredPortfolioItems.map((item) => (

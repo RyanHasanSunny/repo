@@ -1,53 +1,49 @@
 .portfolio {
-    justify-content: space-around;
-    gap: 1em; /* Adjust gap as needed */
-    padding: 1em;
-    box-sizing: border-box;
-    cursor: none;
+  justify-content: space-around;
+  gap: 1em; /* Adjust gap as needed */
+  padding: 2%;
+  box-sizing: border-box;
+  cursor: none;
 }
-
 
 /* Navbar Styles */
 .navbarbordar {
-  width: fit-content;
-  position: sticky;
-  justify-items: center;
   width: 100%;
-
+  position: sticky;
   top: 0;
   z-index: 10;
+  padding: 10px 0;
 }
 
 .navbar {
-  padding-top: 10px;
-  backdrop-filter: blur(5px);
-  background-color: #16130fda;
-  filter: grayscale(10px);
   display: flex;
+  justify-content: center;
   width: fit-content;
+  max-width: 1200px;
+  margin: 0 auto;
   border-radius: 20px;
-  border: .5px solid;
-  border-color: rgba(240, 248, 255, 0.274);
-  padding-block: 20px;
-  padding-inline: 20px;
-  margin-bottom: 50px;
+  backdrop-filter: blur(15px);
+  border: 0.5px solid rgba(240, 248, 255, 0.274);
+background-color: rgba(19, 11, 1, 0.562);
+  padding: 10px 20px;
   box-shadow: 0px 5px 20px rgb(19, 17, 11);
+  overflow: hidden;
 }
 
 .navbar-list {
   display: flex;
   justify-content: center;
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  gap: 20px; /* Space between navbar items */
 }
 
 .navbar-list li {
-  margin: 0 20px;
+  margin: 0;
 }
 
 .navbar-list a {
-  cursor: none;
   color: antiquewhite;
   text-decoration: none;
   font-size: 12pt;
@@ -96,65 +92,46 @@
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
 }
 
 /* Responsive Design */
-
-/* For screens 1200px and smaller */
-@media screen and (max-width: 1200px) {
+@media (max-width: 768px) {
   .navbar {
-    flex-direction: row;
-    padding-block: 10px;
-    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
   }
 
   .navbar-list {
-    flex-direction: row;
-   
+    flex-wrap: wrap; /* Allow navbar items to wrap on smaller screens */
+    gap: 10px;
   }
 
-
-  
+  .navbar-list a {
+    font-size: 10pt; /* Smaller font size for mobile */
+  }
 
   .portfolio h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    text-align: center;
   }
 
   .portfolio .portfolio-list {
-    width: 100%;
+    gap: 10px; /* Reduce gap between items on mobile */
+    padding: 2%;
   }
 }
 
-
-/* For screens 576px and smaller (mobile) */
-@media screen and (max-width: 576px) {
-  .portfolio h2 {
-    font-size: 12pt;
-    text-align: center;
-  }
-
-  .navbar {
-    padding-block: 10px;
-
-    flex-direction: column;
-  }
-
-
+@media (max-width: 480px) {
   .navbar-list {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
+    gap: 5px; /* Further reduce gap for very small screens */
   }
 
-  .portfolio .portfolio-list {
-    gap: 10px;
-    width: 100%;
+  .navbar-list a {
+    font-size: 9pt; /* Even smaller font size for very small screens */
   }
 
-  .navbarbordar {
-   
-    position: relative;
-   
+  .portfolio h2 {
+    font-size: 1.2rem; /* Smaller font size for very small screens */
   }
 }

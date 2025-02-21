@@ -1,6 +1,6 @@
 .collaboration {
   margin-top: 30vh;
-    padding: 50px;
+    padding: 2%;
     width: 100%;
     text-align: center;
     display: flex;
@@ -13,7 +13,7 @@
     font-size: 24pt;
     margin-bottom: 20px;
     color: antiquewhite; /* Main accent color */
-    padding-block: 15px;
+    padding-block: 2%;
   }
   
   
