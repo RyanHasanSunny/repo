@@ -1,0 +1,41 @@
+/* Custom Cursor */
+.cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f8f3d991;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    z-index: 1000;
+  }
+  
+  /* Cursor Trail */
+  .cursor-trail {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #fff4dd69;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    z-index: 999;
+    opacity: 0.5;
+  }
+  
+  /* Scale Up Effect */
+  .cursor.scale-up {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: #ff6347; /* Change color on hover */
+  }
+  
+  /* Color Change Effect */
+  .cursor.color-change {
+    background-color: #1c2002d7; /* Change color on hover */
+  }
+  
+  .cursor-trail.color-change {
+    border-color: #fefffdd7; /* Change trail color on hover */
+  }

@@ -2,6 +2,7 @@ import React from 'react';
 import '../Styles/Collaboration.css';
 import '../Styles/Style.css';
 import CollaborationItem from '../components/CollaborationItem';
+import CustomCursor from "../components/Customcursor"; // Import the CustomCursor component
 import Item1 from '../assets/ring2.png';
 import Item2 from '../assets/ring2.png';
 import Item3 from '../assets/ring2.png';
@@ -41,6 +42,9 @@ const Portfolio = () => {
 
   return (
     <section className="collaboration">
+
+        <CustomCursor/>
+
       <h2>Let's work together to <br /> create amazing projects!</h2>
       <div className="collaboration-grid">
         {collaborationItems.map(item => (

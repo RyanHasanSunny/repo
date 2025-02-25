@@ -9,6 +9,9 @@ height: fit-content;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Disable text selection */
+  
+
 }
 
 
@@ -24,7 +27,7 @@ nav {
   flex-direction: column;
   mix-blend-mode:lighten;
   position: fixed;
-
+cursor: none;
   width: 100%;
 }
 

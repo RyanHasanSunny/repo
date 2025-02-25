@@ -14,6 +14,35 @@
   justify-content: center;
 }
 
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-item p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.skill-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.skill-icon {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Make icons circular */
+  object-fit: cover;
+  border: 2px solid #ccc; /* Optional: Add a border */
+  transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.skill-icon:hover {
+  transform: scale(1.1); /* Enlarge icons on hover */
+}
+
 #img {
   display: flex;
   width: fit-content;
@@ -71,6 +100,7 @@
 #workingdetails h2 {
   font-family: Tahoma;
   font-size: 16px;
+  letter-spacing: 5%;
   margin-bottom: 0%;
 }
 
@@ -133,6 +163,46 @@
 #section p {
   text-align: justify;
   font-size: 18px;
+}
+
+/* Experience Section */
+.experience-item {
+  margin-bottom: 20px;
+}
+
+.experience-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.experience-item p {
+  margin: 5px 0;
+}
+
+/* Education Section */
+.education-item {
+  margin-bottom: 20px;
+}
+
+.education-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.education-item p {
+  margin: 5px 0;
+}
+
+/* Contact Section */
+.contact p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.contact strong {
+  font-weight: bold;
 }
 
 /* Responsive Design */

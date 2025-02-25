@@ -3,7 +3,6 @@
   gap: 1em; /* Adjust gap as needed */
   padding: 2%;
   box-sizing: border-box;
-  cursor: none;
 }
 
 /* Navbar Styles */
@@ -47,6 +46,7 @@ background-color: rgba(19, 11, 1, 0.562);
   color: antiquewhite;
   text-decoration: none;
   font-size: 12pt;
+  cursor: none;
   transition: color 0.3s;
 }
 

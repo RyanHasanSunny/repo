@@ -1,27 +1,52 @@
-//import React, { useEffect, useRef, useState } from "react";
-//import { db } from "./firebaseConfig"; // Import your Firestore configuration
-//import { doc, getDoc } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { db } from "./firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 import "../Styles/Aboutme.css";
 import "../Styles/Style.css";
 import Icon from "../assets/sunny.jpg";
-import ps from "../assets/photoshop.png"
-import ai from "../assets/illustrator.png"
-import id from "../assets/indesign.png"
-import figma from "../assets/figma.png"
-import xd from "../assets/xd_5968559.png"
-import bl from "../assets/Blender-Symbol.png"
-import autodesk3ds from "../assets/autodesk3ds.png"
-//import AboutItem from "./AboutItem";
+import CustomCursor from "../components/Customcursor";
 import { NavLink } from "react-router-dom";
-//import { motion } from "framer-motion"; // Import framer-motion
 
 const Aboutme = () => {
+  const [aboutData, setAboutData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchAboutMe = async () => {
+      try {
+        const docRef = doc(db, "about", "aboutDocId"); // Replace with your document ID
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setAboutData(docSnap.data());
+        } else {
+          setError("About Me data not found. Please check the database.");
+        }
+      } catch (error) {
+        setError("Error fetching About Me data: " + error.message);
+        console.error("Error fetching About Me data: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAboutMe();
+  }, []);
+
+  if (loading) return <div className="loading-spinner">Loading About Me...</div>;
+  if (error) {
+    return (
+      <div className="error-message">
+        <p>Error: {error}</p>
+        <button onClick={() => window.location.reload()}>Retry</button>
+      </div>
+    );
+  }
 
   return (
     <section id="aboutme">
-
-      {/* edit button */}
+      <CustomCursor />
       <div className="Adminbtnplace">
         <NavLink to="/admin" className="admin-btn">
           Edit
@@ -30,7 +55,6 @@ const Aboutme = () => {
 
       <div id="aboutme-content">
         <div className="home-content-header">
-
           <div id="Image-name">
             <div id="img">
               <img className="imagesize" src={Icon} alt="profile-image" />
@@ -38,206 +62,110 @@ const Aboutme = () => {
             <div id="text-content">
               <div id="Name">
                 <h2>I'm</h2>
-                <p>Ryan Hasan Sunny</p>
+                <p>{aboutData?.name || "Ryan Hasan Sunny"}</p>
               </div>
               <div id="workingdetails">
-                <div className="Exprience">
-                  <h2>
-                    Year of Exprience
-                  </h2>
-                  <p>
-                    3+
-                  </p>
+                <div className="Experience">
+                  <h2>Year of Experience</h2>
+                  <p>{aboutData?.experience || "3+"}</p>
                 </div>
-                {/* <div className="Line">
-                </div> */}
                 <div className="Project-Completed">
-                  <h2>
-                    Project Completed
-                  </h2>
-                  <p>
-                    20+
-                  </p>
+                  <h2>Project Completed</h2>
+                  <p>{aboutData?.projects || "20+"}</p>
                 </div>
-                {/* <div className="Line">
-                </div> */}
                 <div className="Clients">
-                  <h2>
-                    Clients
-                  </h2>
-                  <p>
-                    10+
-                  </p>
+                  <h2>Clients</h2>
+                  <p>{aboutData?.clients || "10+"}</p>
                 </div>
-                {/* <div className="Line">
-                </div> */}
                 <div className="Hours">
-                  <h2>
-                    Hours of Designing
-                  </h2>
-                  <p>
-                    10000+
-                  </p>
+                  <h2>Hours of Designing</h2>
+                  <p>{aboutData?.hours || "10000+"}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* <div className="Line">
-        </div> */}
-
-        <section id="section" className="aboutme"
-        >
+        <section id="section" className="aboutme">
           <div className="title">
             <h2>About me</h2>
           </div>
-          {/* <div className="Line">
-          </div> */}
           <div className="details">
-            <p>
-              Ryan Hasan Sunny is a skilled 3D artist, graphic designer, and
-              Computer Science and Engineering student with a flair for creative
-              expression and technological expertise. With a strong foundation
-              in digital design tools such as Blender 3D, Adobe Illustrator, and
-              Photoshop, Ryan specializes in 3D modeling, rendering, and
-              animation. His portfolio showcases a wide range of work, from gold
-              jewelry renders to logo designs for businesses like PRS Sourcing,
-              a garment trading office. As a full-time freelancer on Fiverr,
-              Ryan has honed his ability to deliver high-quality, visually
-              compelling projects, balancing both technical precision and
-              artistic vision. His work is driven by a passion for bringing
-              ideas to life in visually striking ways, whether through intricate
-              3D designs or vibrant graphic illustrations.
-            </p>
+            <p>{aboutData?.description || "Ryan Hasan Sunny is a skilled 3D artist, graphic designer, and Computer Science and Engineering student with a flair for creative expression and technological expertise."}</p>
           </div>
         </section>
 
-        <section id="section" className="skills"
-        >
+        <section id="section" className="skills">
           <div className="title">
             <h2>Skills</h2>
           </div>
-          {/* <div className="Line">
-          </div> */}
           <div className="details">
-
-          <div className="Items">
-
-          
-            <div id="skills">
-              <p>
-                Graphic Design
-              </p>
-
-              <div className="tools">
-                <img className="imagesize" src={ps} alt="ps" />
-                <img className="imagesize" src={ai} alt="ai" />
-                <img className="imagesize" src={id} alt="id" />
-                <img className="imagesize" src={figma} alt="figma" />
-                <img className="imagesize" src={bl} alt="ps" />
-                <img className="imagesize" src={autodesk3ds} alt="ai" />
-                <img className="imagesize" src={xd} alt="id" />
+            {aboutData?.skills?.map((skill, index) => (
+              <div key={index} className="skill-item">
+                <p>{skill.skill}</p>
+                {skill.images && skill.images.length > 0 && (
+                  <div className="skill-icons">
+                    {skill.images.map((image, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        src={image}
+                        alt={`${skill.skill} Icon ${imgIndex + 1}`}
+                        className="skill-icon"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-
-            </div>
-            <div id="skills">
-              <p>
-                Game Development
-              </p>
-              <div className="tools">
-                
-
-              </div>
-
-            </div>
-            <div id="skills">
-              <p>
-                Web Design 
-              </p>
-
-              <div className="tools">
-              <img className="imagesize" src={ps} alt="ps" />
-                <img className="imagesize" src={ai} alt="ai" />
-                <img className="imagesize" src={id} alt="id" />
-                <img className="imagesize" src={figma} alt="figma" />
-                <img className="imagesize" src={bl} alt="ps" />
-                <img className="imagesize" src={autodesk3ds} alt="ai" />
-                <img className="imagesize" src={xd} alt="id" />
-              </div>
-
-            </div>
-            </div>
-
+            ))}
           </div>
         </section>
 
-
-
-        <section id="section" className="Exprience"
-        >
+        {/* Experience Section */}
+        <section id="section" className="experience">
           <div className="title">
-            <h2>Exprience</h2>
+            <h2>Experience</h2>
           </div>
-          {/* <div className="Line">
-          </div> */}
           <div className="details">
-
-          <div className="Items">
-
-          
-            <div id="skills">
-              <p>
-                Graphic Design
-              </p>
-
-              <div className="tools">
-                <img className="imagesize" src={ps} alt="ps" />
-                <img className="imagesize" src={ai} alt="ai" />
-                <img className="imagesize" src={id} alt="id" />
-                <img className="imagesize" src={figma} alt="figma" />
-                <img className="imagesize" src={bl} alt="ps" />
-                <img className="imagesize" src={autodesk3ds} alt="ai" />
-                <img className="imagesize" src={xd} alt="id" />
+            {aboutData?.experiences?.map((exp, index) => (
+              <div key={index} className="experience-item">
+                <h3>{exp.title}</h3>
+                <p>{exp.duration}</p>
+                <p>{exp.organization}</p>
               </div>
+            ))}
+          </div>
+        </section>
 
-            </div>
-            <div id="skills">
-              <p>
-                Game Development
-              </p>
-              <div className="tools">
-                
-
+        {/* Education Section */}
+        <section id="section" className="education">
+          <div className="title">
+            <h2>Education</h2>
+          </div>
+          <div className="details">
+            {aboutData?.education?.map((edu, index) => (
+              <div key={index} className="education-item">
+                <h3>{edu.qualification}</h3>
+                <p>{edu.session}</p>
+                <p>{edu.institution}</p>
               </div>
-
-            </div>
-            <div id="skills">
-              <p>
-                Web Design 
-              </p>
-
-              <div className="tools">
-              <img className="imagesize" src={ps} alt="ps" />
-                <img className="imagesize" src={ai} alt="ai" />
-                <img className="imagesize" src={id} alt="id" />
-                <img className="imagesize" src={figma} alt="figma" />
-                <img className="imagesize" src={bl} alt="ps" />
-                <img className="imagesize" src={autodesk3ds} alt="ai" />
-                <img className="imagesize" src={xd} alt="id" />
-              </div>
-
-            </div>
-            </div>
-
+            ))}
           </div>
         </section>
 
 
+        
 
-
-
-
+        {/* Contact Section */}
+        <section id="section" className="contact-information">
+          <div className="title">
+            <h2>Contact Information</h2>
+          </div>
+          <div className="details">
+            <p><strong>Email:</strong> {aboutData?.contact?.email}</p>
+            <p><strong>Phone:</strong> {aboutData?.contact?.phone}</p>
+            <p><strong>Address:</strong> {aboutData?.contact?.address}</p>
+          </div>
+        </section>
       </div>
     </section>
   );
