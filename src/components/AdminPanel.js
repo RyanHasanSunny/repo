@@ -24,6 +24,8 @@ const AdminPanel = ({ setIsAuthenticated }) => {
     return () => unsubscribe(); // Cleanup subscription
   }, [navigate, setIsAuthenticated]);
 
+
+
   // About Me state
   const [aboutMe, setAboutMe] = useState({
     name: "",
@@ -37,21 +39,28 @@ const AdminPanel = ({ setIsAuthenticated }) => {
     education: [],
   });
 
-  const [experiences, setExperiences] = useState([]);
+
+
 const [newExperience, setNewExperience] = useState({
   title: "",
   duration: "",
   organization: "",
 });
-const [editingExperience, setEditingExperience] = useState(null);
+ const [editingExperience, setEditingExperience] = useState(null);
 
-const [education, setEducation] = useState([]);
+
+
+
 const [newEducation, setNewEducation] = useState({
   qualification: "",
   session: "",
   institution: "",
 });
 const [editingEducation, setEditingEducation] = useState(null);
+
+
+
+
 
 const [contactInfo, setContactInfo] = useState({
   email: "",
@@ -131,25 +140,25 @@ const [contactInfo, setContactInfo] = useState({
 }, []);
 
 
-  const handleSaveAboutMe = async () => {
-    try {
-      const docRef = doc(db, "about", "aboutDocId"); // Replace "aboutDocId" with your document ID
-      const docSnap = await getDoc(docRef); // Check if the document exists
-  
-      if (docSnap.exists()) {
-        // Document exists, update it
-        await updateDoc(docRef, aboutMe);
-        alert("About Me updated successfully!");
-      } else {
-        // Document does not exist, create it
-        await setDoc(docRef, aboutMe);
-        alert("About Me created successfully!");
-      }
-    } catch (error) {
-      setError("Error saving About Me: " + error.message);
-      console.error("Error saving About Me: ", error);
+const handleSaveAboutMe = async () => {
+  try {
+    const docRef = doc(db, "about", "aboutDocId");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      await updateDoc(docRef, aboutMe);
+    } else {
+      await setDoc(docRef, aboutMe);
     }
-  };
+    alert("About Me updated successfully!");
+    // Optionally, you can fetch the updated data again to ensure the state is up-to-date
+    const updatedDocSnap = await getDoc(docRef);
+    setAboutMe(updatedDocSnap.data());
+  } catch (error) {
+    setError("Error saving About Me: " + error.message);
+    console.error("Error saving About Me: ", error);
+  }
+};
 
 
   
@@ -157,25 +166,28 @@ const [contactInfo, setContactInfo] = useState({
 
   const handleAddExperience = async () => {
     try {
-      const docRef = doc(db, "about", "aboutDocId"); // Replace with your document ID
+      const docRef = doc(db, "about", "aboutDocId");
       const docSnap = await getDoc(docRef);
   
       if (docSnap.exists()) {
-        // Get the existing experiences array or initialize it as an empty array
         const existingExperiences = docSnap.data().experiences || [];
-  
-        // Update the document with the new experience
         await updateDoc(docRef, {
           experiences: [...existingExperiences, newExperience],
         });
+        setAboutMe((prev) => ({
+          ...prev,
+          experiences: [...existingExperiences, newExperience],
+        }));
       } else {
-        // Create a new document with the experiences array
         await setDoc(docRef, {
           experiences: [newExperience],
         });
+        setAboutMe((prev) => ({
+          ...prev,
+          experiences: [newExperience],
+        }));
       }
   
-      // Reset the form
       setNewExperience({ title: "", duration: "", organization: "" });
       alert("Experience added successfully!");
     } catch (error) {
@@ -217,22 +229,23 @@ const [contactInfo, setContactInfo] = useState({
   
   const handleDeleteExperience = async (index) => {
     try {
-      const docRef = doc(db, "about", "aboutDocId"); // Replace with your document ID
+      const docRef = doc(db, "about", "aboutDocId");
       const docSnap = await getDoc(docRef);
   
       if (docSnap.exists()) {
-        // Get the existing experiences array or initialize it as an empty array
         const existingExperiences = docSnap.data().experiences || [];
+        const updatedExperiences = existingExperiences.filter((_, i) => i !== index);
   
-        // Remove the experience at the specified index
-        const updatedExperiences = existingExperiences.filter(
-          (_, i) => i !== index
-        );
-  
-        // Update the document
+        // Update Firestore
         await updateDoc(docRef, {
           experiences: updatedExperiences,
         });
+  
+        // Update local state
+        setAboutMe((prev) => ({
+          ...prev,
+          experiences: updatedExperiences,
+        }));
   
         alert("Experience deleted successfully!");
       } else {
@@ -245,27 +258,33 @@ const [contactInfo, setContactInfo] = useState({
   };
 
 
+
+  //handleAddEducation
+
   const handleAddEducation = async () => {
     try {
-      const docRef = doc(db, "about", "aboutDocId"); // Replace with your document ID
+      const docRef = doc(db, "about", "aboutDocId");
       const docSnap = await getDoc(docRef);
   
       if (docSnap.exists()) {
-        // Get the existing education array or initialize it as an empty array
         const existingEducation = docSnap.data().education || [];
-  
-        // Update the document with the new education entry
         await updateDoc(docRef, {
           education: [...existingEducation, newEducation],
         });
+        setAboutMe((prev) => ({
+          ...prev,
+          education: [...existingEducation, newEducation],
+        }));
       } else {
-        // Create a new document with the education array
         await setDoc(docRef, {
           education: [newEducation],
         });
+        setAboutMe((prev) => ({
+          ...prev,
+          education: [newEducation],
+        }));
       }
   
-      // Reset the form
       setNewEducation({ qualification: "", session: "", institution: "" });
       alert("Education added successfully!");
     } catch (error) {
@@ -307,22 +326,23 @@ const [contactInfo, setContactInfo] = useState({
   
   const handleDeleteEducation = async (index) => {
     try {
-      const docRef = doc(db, "about", "aboutDocId"); // Replace with your document ID
+      const docRef = doc(db, "about", "aboutDocId");
       const docSnap = await getDoc(docRef);
   
       if (docSnap.exists()) {
-        // Get the existing education array or initialize it as an empty array
         const existingEducation = docSnap.data().education || [];
+        const updatedEducation = existingEducation.filter((_, i) => i !== index);
   
-        // Remove the education entry at the specified index
-        const updatedEducation = existingEducation.filter(
-          (_, i) => i !== index
-        );
-  
-        // Update the document
+        // Update Firestore
         await updateDoc(docRef, {
           education: updatedEducation,
         });
+  
+        // Update local state
+        setAboutMe((prev) => ({
+          ...prev,
+          education: updatedEducation,
+        }));
   
         alert("Education deleted successfully!");
       } else {
@@ -476,8 +496,12 @@ const handleDeleteSkill = (index) => {
   // Delete a category
   const handleDeleteCategory = async (id) => {
     try {
+      // Delete from Firestore
       await deleteDoc(doc(db, "categories", id));
-      setCategories(categories.filter(cat => cat.id !== id));
+  
+      // Update local state
+      setCategories((prev) => prev.filter((cat) => cat.id !== id));
+  
       alert("Category deleted successfully!");
     } catch (error) {
       setError("Error deleting category: " + error.message);
@@ -491,9 +515,10 @@ const handleDeleteSkill = (index) => {
       alert('Please fill in all fields.');
       return;
     }
-
+  
     try {
-      await addDoc(collection(db, "portfolio"), newPortfolioItem);
+      const docRef = await addDoc(collection(db, "portfolio"), newPortfolioItem);
+      setPortfolioItems((prev) => [...prev, { id: docRef.id, ...newPortfolioItem }]);
       setNewPortfolioItem({ title: '', description: '', image: '', link: '', category: '' });
       alert("Portfolio item added successfully!");
     } catch (error) {
@@ -518,8 +543,12 @@ const handleDeleteSkill = (index) => {
   // Delete portfolio item
   const handleDeletePortfolioItem = async (id) => {
     try {
+      // Delete from Firestore
       await deleteDoc(doc(db, "portfolio", id));
-      setPortfolioItems(portfolioItems.filter(item => item.id !== id));
+  
+      // Update local state
+      setPortfolioItems((prev) => prev.filter((item) => item.id !== id));
+  
       alert("Portfolio item deleted successfully!");
     } catch (error) {
       setError("Error deleting portfolio item: " + error.message);
@@ -654,56 +683,82 @@ const handleDeleteSkill = (index) => {
 
     <div>
   <h3>Experiences</h3>
+  <div className="panel-contents">
   {aboutMe.experiences?.map((exp, index) => (
-    <div key={index}>
+    <div key={index} className="added-contents">
       <h4>{exp.title}</h4>
       <p>{exp.duration}</p>
       <p>{exp.organization}</p>
-      <button onClick={() => setEditingExperience({ ...exp, index })}>Edit</button>
-      <button onClick={() => handleDeleteExperience(index)}>Delete</button>
+      <div className="admin-buttons">
+      <button  className="button" onClick={() => setEditingExperience({ ...exp, index })}>Edit</button>
+      <button  className="button" onClick={() => handleDeleteExperience(index)}>Delete</button>
+    </div> 
     </div>
   ))}
-  <input
-    type="text"
-    value={newExperience.title}
-    onChange={(e) => setNewExperience({ ...newExperience, title: e.target.value })}
-    placeholder="Title"
-  />
-  <input
-    type="text"
-    value={newExperience.duration}
-    onChange={(e) => setNewExperience({ ...newExperience, duration: e.target.value })}
-    placeholder="Duration"
-  />
-  <input
-    type="text"
-    value={newExperience.organization}
-    onChange={(e) => setNewExperience({ ...newExperience, organization: e.target.value })}
-    placeholder="Organization"
-  />
+</div>
+
+<div>
+    <h3>{editingExperience ? 'Edit Experience' : 'Add New Experience'}</h3>
+    <input
+      type="text"
+      value={editingExperience ? editingExperience.title : newExperience.title}
+      onChange={(e) =>
+        editingEducation
+          ? setEditingExperience({ ...editingExperience, title: e.target.value })
+          : setNewExperience({ ...newExperience, title: e.target.value })
+      }
+      placeholder="Title"
+    />
+
+
+<input
+      type="text"
+      value={editingExperience ? editingExperience.duration : newExperience.duration}
+      onChange={(e) =>
+        editingEducation
+          ? setEditingExperience({ ...editingExperience, duration: e.target.value })
+          : setNewExperience({ ...newExperience, duration: e.target.value })
+      }
+      placeholder="Duration"
+    />
+
+
+<input
+      type="text"
+      value={editingExperience ? editingExperience.organization : newExperience.organization}
+      onChange={(e) =>
+        editingEducation
+          ? setEditingExperience({ ...editingExperience, organization: e.target.value })
+          : setNewExperience({ ...newExperience, organization: e.target.value })
+      }
+      placeholder="Organization"
+    />
+   
+    
+    <button
+      className="button"
+      onClick={editingExperience ? handleSaveExperience : handleAddExperience}
+    >
+      {editingExperience ? 'Save Changes' : 'Add Education'}
+    </button>
+    {editingExperience && (
+      <button className="button" onClick={() => setEditingExperience(null)}>Cancel</button>
+    )}
+  </div>
+
   <button onClick={handleAddExperience}>Add Experience</button>
 </div>
 
-
-
-    <button className="button" onClick={handleSaveAboutMe}>Save About Me</button>
-        </div>
-      </div>
-
-
-  
-
-<section className="admin-sections">
-  <h2>Manage Education</h2>
+<h2>Manage Education</h2>
   <div className="panel-contents">
-    {education.map(edu => (
-      <div key={edu.id} className="added-contents">
+    {aboutMe.education?.map((edu, index) =>  (
+      <div key={index} className="added-contents">
         <h3>{edu.qualification}</h3>
         <p>{edu.session}</p>
         <p>{edu.institution}</p>
         <div className="admin-buttons">
           <button className="button" onClick={() => setEditingEducation(edu)}>Edit</button>
-          <button className="button" onClick={() => handleDeleteEducation(edu.id)}>Delete</button>
+          <button className="button" onClick={() => handleDeleteEducation(index)}>Delete</button>
         </div>
       </div>
     ))}
@@ -751,10 +806,10 @@ const handleDeleteSkill = (index) => {
       <button className="button" onClick={() => setEditingEducation(null)}>Cancel</button>
     )}
   </div>
-</section>
 
 
-<section className="admin-sections">
+
+  
   <h2>Manage Contact Information</h2>
   <div>
     <input
@@ -777,11 +832,19 @@ const handleDeleteSkill = (index) => {
     />
     <button className="button" onClick={handleSaveContactInfo}>Save Contact Information</button>
   </div>
-</section>
+
+
+  
 
 
 
 
+    <button className="button" onClick={handleSaveAboutMe}>Save About Me</button>
+        </div>
+      </div>
+
+
+   
 
       {/* Portfolio Section */}
       <section className='admin-sections'>

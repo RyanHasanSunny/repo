@@ -9,29 +9,34 @@ import { NavLink } from "react-router-dom";
 
 const Aboutme = () => {
   const [aboutData, setAboutData] = useState(null);
+  const [contactData, setContactData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchAboutMe = async () => {
-      try {
-        const docRef = doc(db, "about", "aboutDocId"); // Replace with your document ID
-        const docSnap = await getDoc(docRef);
+  const fetchData = async (collection, docId, setData) => {
+    try {
+      const docRef = doc(db, collection, docId);
+      const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-          setAboutData(docSnap.data());
-        } else {
-          setError("About Me data not found. Please check the database.");
-        }
-      } catch (error) {
-        setError("Error fetching About Me data: " + error.message);
-        console.error("Error fetching About Me data: ", error);
-      } finally {
-        setLoading(false);
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        setError(`${collection} data not found. Please check the database.`);
       }
+    } catch (error) {
+      setError(`Error fetching ${collection} data: ${error.message}`);
+      console.error(`Error fetching ${collection} data: `, error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchAllData = async () => {
+      await fetchData("about", "aboutDocId", setAboutData);
+      await fetchData("contact", "contactDocId", setContactData);
+      setLoading(false);
     };
 
-    fetchAboutMe();
+    fetchAllData();
   }, []);
 
   if (loading) return <div className="loading-spinner">Loading About Me...</div>;
@@ -152,18 +157,15 @@ const Aboutme = () => {
           </div>
         </section>
 
-
-        
-
         {/* Contact Section */}
         <section id="section" className="contact-information">
           <div className="title">
             <h2>Contact Information</h2>
           </div>
           <div className="details">
-            <p><strong>Email:</strong> {aboutData?.contact?.email}</p>
-            <p><strong>Phone:</strong> {aboutData?.contact?.phone}</p>
-            <p><strong>Address:</strong> {aboutData?.contact?.address}</p>
+            <p><strong>Email:</strong> {contactData?.email || "No email provided"}</p>
+            <p><strong>Phone:</strong> {contactData?.phone || "No phone provided"}</p>
+            <p><strong>Address:</strong> {contactData?.address || "No address provided"}</p>
           </div>
         </section>
       </div>
