@@ -5,6 +5,7 @@ import "../Styles/Introduction.css";
 import "../Styles/Style.css";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion"; // Import framer-motion
+// import Background from "../assets/Ryan.png";  
 
 const Introduction = () => {
   const [welcomeText, setWelcomeText] = useState("WELCOME TO");
@@ -53,6 +54,10 @@ const Introduction = () => {
           Edit
         </NavLink>
       </div>
+
+      {/* <div className="Background" >
+        <img className="Background-img" src={Background} alt="Background" />
+      </div> */}
 
       {/* Main Content */}
       <div id="home-content" className="home-content">

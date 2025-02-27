@@ -10,7 +10,8 @@
           "animation-timeline",
           "animation-timeline: view()",
           "animation-range",
-          "scrollbar-color"
+          "scrollbar-color",
+          "backdrop-filter"
         ]
       }
     ],

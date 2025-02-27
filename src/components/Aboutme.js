@@ -132,7 +132,7 @@ const Aboutme = () => {
           </div>
           <div className="details">
             {aboutData?.experiences?.map((exp, index) => (
-              <div key={index} className="experience-item">
+              <div key={index} className="item">
                 <h3>{exp.title}</h3>
                 <p>{exp.duration}</p>
                 <p>{exp.organization}</p>
@@ -148,7 +148,7 @@ const Aboutme = () => {
           </div>
           <div className="details">
             {aboutData?.education?.map((edu, index) => (
-              <div key={index} className="education-item">
+              <div key={index} className="item">
                 <h3>{edu.qualification}</h3>
                 <p>{edu.session}</p>
                 <p>{edu.institution}</p>

@@ -16,7 +16,10 @@
 
 
 .skill-item {
-  margin-bottom: 20px;
+  margin-bottom: 10%;
+  border-bottom: solid 1px #96969649;
+  padding: 10px;
+  
 }
 
 .skill-item p {
@@ -27,15 +30,15 @@
 
 .skill-icons {
   display: flex;
-  gap: 10px;
+  gap: 2%;
 }
 
 .skill-icon {
   width: 40px; /* Adjust size as needed */
   height: 40px; /* Adjust size as needed */
-  border-radius: 50%; /* Make icons circular */
+  border-radius: 20%; /* Make icons circular */
   object-fit: cover;
-  border: 2px solid #ccc; /* Optional: Add a border */
+  border: 2px solid #fff3e124; /* Optional: Add a border */
   transition: transform 0.3s ease; /* Add hover effect */
 }
 
@@ -71,13 +74,15 @@
 }
 
 #Name h2 {
-  font-family: Impact;
+  font-family: "poppins";
+  font-weight: bold;
   margin-bottom: 0%;
   font-size: 50px;
 }
 
 #Name p {
-  font-family: Impact;
+  font-family: "poppins";
+  font-weight: bold;
   margin-top: 0%;
   font-size: 50px;
 }
@@ -98,14 +103,15 @@
 }
 
 #workingdetails h2 {
-  font-family: Tahoma;
+  font-family: "poppins";
   font-size: 16px;
   letter-spacing: 5%;
   margin-bottom: 0%;
 }
 
 #workingdetails p {
-  font-family: Impact;
+  font-family: "poppins";
+  font-weight: bold;
   font-size: 35px;
   border-bottom: .6rem solid rgba(128, 128, 0, 0.123);
   border-radius: 6px;
@@ -146,59 +152,70 @@
 #section .details {
   justify-content: space-around;
   border-left: .1rem solid rgba(128, 128, 0, 0.322);
-  padding-inline: 30px;
-  width: 80%;
+  padding-inline: 2%;
+  width: 60%;
 }
 
 #section .title h2 {
-  font-family: Impact;
+  font-family: "poppins";
+  font-weight: bold;
+  
   justify-content: space-around;
 }
 
 #section h2 {
   text-align: justify;
+  font-family: "Russo One", serif;
   font-size: 35px;
 }
 
 #section p {
   text-align: justify;
+  font-family: "poppins";
   font-size: 18px;
 }
 
 /* Experience Section */
-.experience-item {
+.item {
   margin-bottom: 20px;
 }
 
-.experience-item h3 {
-  font-size: 1.2rem;
+.item h3 {
+  font-size: 28px;
+  font-family: "poppins";
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.experience-item p {
+.item p {
   margin: 5px 0;
+  font-family: "poppins";
 }
 
 /* Education Section */
-.education-item {
+.item {
   margin-bottom: 20px;
+   border-bottom: solid 1px #96969649;
+  padding: 10px;
 }
 
 .education-item h3 {
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: "poppins";
   margin-bottom: 5px;
 }
 
 .education-item p {
   margin: 5px 0;
+  font-family: "poppins";
 }
 
 /* Contact Section */
 .contact p {
   margin: 10px 0;
   font-size: 1.1rem;
+  font-family: "poppins";
 }
 
 .contact strong {
