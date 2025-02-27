@@ -428,7 +428,7 @@ const handleDeleteSkill = (index) => {
   const handleSaveIntroduction = async () => {
     try {
       const introData = { welcomeText, name, subtitle, image: imageUrl };
-      const docRef = doc(db, "introduction", "introductionDocId"); // Replace with your document ID
+      const docRef = doc(db, "introductionDocId", "BXORMSgnVvlVBbczIC7J"); // Replace with your document ID
       await updateDoc(docRef, introData);
       alert("Introduction saved successfully!");
     } catch (error) {

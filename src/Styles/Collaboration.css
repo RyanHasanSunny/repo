@@ -9,7 +9,8 @@
 
   
   .collaboration h2 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "poppins";
+  font-weight: bold;
     font-size: 24pt;
     margin-bottom: 20px;
     color: antiquewhite; /* Main accent color */

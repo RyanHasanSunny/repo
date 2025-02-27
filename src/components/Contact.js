@@ -1,15 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { db } from "./firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 import '../Styles/Contact.css';
 
+
+
+
 const Contact = () => {
+
+
+ const [contactData, setContactData] = useState(null);
+ const [errors, setErrors] = useState({});
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
-  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+const fetchData = async (collection, docId, setData) => {
+    try {
+      const docRef = doc(db, collection, docId);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        setErrors(`${collection} data not found. Please check the database.`);
+      }
+    } catch (error) {
+      setErrors(`Error fetching ${collection} data: ${error.message}`);
+      console.error(`Error fetching ${collection} data: `, error);
+    }
+  };
+
+
+   useEffect(() => {
+      const fetchAllData = async () => {
+        await fetchData("contact", "contactDocId", setContactData);
+        setLoading(false);
+      };
+  
+      fetchAllData();
+    }, []);
+
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -77,11 +113,11 @@ const Contact = () => {
         <div className="contact-info">
           <h3>Contact Information</h3>
           <div className="contact-info-item">
-            <p>
-              <strong>Address:</strong> Dhaka, Bangladesh <br />
-              <strong>Phone:</strong> +8801799340834 <br />
-              <strong>Email:</strong> ryanhasansunny31@gmail.com
-            </p>
+            <div className="details">
+            <p><strong>Email:</strong> {contactData?.email || "No email provided"}</p>
+            <p><strong>Phone:</strong> {contactData?.phone || "No phone provided"}</p>
+            <p><strong>Address:</strong> {contactData?.address || "No address provided"}</p>
+          </div>
 
             <div className="social-media">
               <a
@@ -119,7 +155,7 @@ const Contact = () => {
           </p>
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name</label>
               <input
                 type="text"
                 id="name"

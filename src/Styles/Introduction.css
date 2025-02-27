@@ -66,7 +66,8 @@ mix-blend-mode: lighten;
   text-align: center;
   height: fit-content;
   /* position: -webkit-sticky; Safari */
-  font-family:"Russo One", sans-serif;
+  font-family: "poppins";
+  font-weight: bold;
 
 }
 

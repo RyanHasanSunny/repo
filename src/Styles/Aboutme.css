@@ -165,7 +165,8 @@
 
 #section h2 {
   text-align: justify;
-  font-family: "Russo One", serif;
+  font-family: "poppins";
+  font-weight: bold;
   font-size: 35px;
 }
 

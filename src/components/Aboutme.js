@@ -3,13 +3,14 @@ import { db } from "./firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import "../Styles/Aboutme.css";
 import "../Styles/Style.css";
-import Icon from "../assets/sunny.jpg";
 import CustomCursor from "../components/Customcursor";
 import { NavLink } from "react-router-dom";
 
 const Aboutme = () => {
   const [aboutData, setAboutData] = useState(null);
   const [contactData, setContactData] = useState(null);
+  const [imageUrl, setImageData] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -33,6 +34,8 @@ const Aboutme = () => {
     const fetchAllData = async () => {
       await fetchData("about", "aboutDocId", setAboutData);
       await fetchData("contact", "contactDocId", setContactData);
+      await fetchData("introductionDocId", "BXORMSgnVvlVBbczIC7J", setImageData);
+
       setLoading(false);
     };
 
@@ -62,7 +65,7 @@ const Aboutme = () => {
         <div className="home-content-header">
           <div id="Image-name">
             <div id="img">
-              <img className="imagesize" src={Icon} alt="profile-image" />
+              <img className="imagesize" src={imageUrl?.image} alt="profile-image" />
             </div>
             <div id="text-content">
               <div id="Name">

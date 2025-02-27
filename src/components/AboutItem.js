@@ -1,5 +1,4 @@
 import React from "react";
-import CustomCursor from "../components/Customcursor"; // Import the CustomCursor component
 
 const SkillBar = ({ skill, percentage }) => {
   return (

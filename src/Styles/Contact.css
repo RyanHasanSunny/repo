@@ -40,7 +40,7 @@
 }
 
 .social-media a {
-  color: white;
+  color: rgb(253, 252, 199);
   font-size: 24px;
   transition: color 0.3s;
 }
@@ -73,7 +73,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #d0d3ff49;
+  border: .5px solid #d0d3ff49;
   background-color: #ffffff15;
   color: #ffffff;
   font-size: 1rem;
