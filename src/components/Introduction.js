@@ -9,8 +9,8 @@ import { motion } from "framer-motion"; // Import framer-motion
 
 const Introduction = () => {
   const [welcomeText, setWelcomeText] = useState("WELCOME TO");
-  const [name, setName] = useState("");
-  const [subtitle, setSubtitle] = useState("");
+  const [name, setName] = useState("RYAN");
+  const [subtitle, setSubtitle] = useState("Graphic Boy.");
 
   // Document ID for your introduction data in Firestore
   const docId = "BXORMSgnVvlVBbczIC7J"; // Replace with your actual doc ID
@@ -23,9 +23,9 @@ const Introduction = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
-          setWelcomeText(data.welcomeText || "");
-          setName(data.name || "");
-          setSubtitle(data.subtitle || "");
+          setWelcomeText(data.welcomeText || "WELCOME TO");
+          setName(data.name || "RYAN");
+          setSubtitle(data.subtitle || "Graphic Boy.");
         } else {
           console.log("No such document!");
         }
