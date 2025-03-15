@@ -24,6 +24,8 @@
 
 
 .skill-item {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10%;
   border-bottom: solid 1px #96969649;
   padding: 10px;
@@ -31,12 +33,7 @@
   
 }
 
-.skill-item:hover {
 
-  transform:translatey(-4px); /* Enlarge icons on hover */
-  
-  
-}
 
 
 
@@ -48,7 +45,7 @@
 
 .skill-icons {
   display: flex;
-  gap: 2%;
+  gap: 3%;
 }
 
 .skill-icon {
@@ -56,7 +53,7 @@
   height: 40px; /* Adjust size as needed */
   border-radius: 20%; /* Make icons circular */
   object-fit: cover;
-  border: 2px solid #fff3e124; /* Optional: Add a border */
+  
   transition: transform 0.3s ease; /* Add hover effect */
 }
 
@@ -203,7 +200,7 @@
 }
 
 .item h3 {
-  font-size: 28px;
+  font-size: 18px;
   font-family: "poppins";
   font-weight: bold;
   margin-bottom: 5px;
@@ -222,7 +219,7 @@
 }
 
 .education-item h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: "poppins";
   margin-bottom: 5px;

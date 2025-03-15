@@ -47,15 +47,6 @@ const Introduction = () => {
     <section id="introduction-section">
       {/* Custom Cursor */}
       
-
-      {/* Edit Button */}
-      <div id="Adminbtnplace" className="Adminbtnplace">
-        <NavLink to="/admin" className="admin-btn interactive">
-          Edit
-        </NavLink>
-      </div>
-
-
       {/* Main Content */}
       <div id="home-content" className="home-content">
         <div id="home-content-header" className="home-content-header">

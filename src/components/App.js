@@ -7,11 +7,13 @@ import Portfolio from './Portfolio';
 import Collaboration from './Collaboration';
 import Contact from './Contact';
 import Footer from './Footer';
-import AdminPanel from './AdminPanel';
+import AdminPanel from './Admin/AdminPanel';
 import Logout from './Logout';
 import AdminLogin from './AdminLogin';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import AboutMe from './Aboutme';
+// import Review from'./Review';
+import AboutMe from './aboutme/Aboutme';
+
 import CustomCursor from "../components/Customcursor"; // Import the CustomCursor component
 
 
@@ -35,16 +37,25 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
+        {/* Edit Button */}
+        {/* <div id="Adminbtnplace" className="Adminbtnplace">
           
-        <Route 
-        path="/about" element={<AboutMe />} />
+          <NavLink to="/admin" className="admin-btn interactive">
+          <div id="options">
+            <div id='line'></div>
+            <div id='line'></div>
+            <div id='line'></div>
+          </div>
+          </NavLink>
+        </div> */}
+
+        <Routes>
+
+          <Route path="/about" element={<AboutMe />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
-          <Route
-          path="/admin"
-          element={isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/login" />}
-        />
+          <Route path="/admin" element={isAuthenticated ? <AdminPanel setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/login" />}
+          />
 
           <Route path="/" element={
             <>
@@ -58,6 +69,9 @@ function App() {
               {/* <section id="articles">
                 <Articles />
               </section> */}
+              {/* <section id="review">
+                <Review />
+              </section> */}
               <section id="collaboration">
                 <Collaboration />
               </section>
@@ -67,7 +81,7 @@ function App() {
               <Footer />
             </>
           } />
-          
+
         </Routes>
       </div>
     </Router>

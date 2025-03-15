@@ -24,7 +24,7 @@
     height: 20px;
     background-color: antiquewhite;
     border-radius: 50%;
-    z-index: 1000;
+    z-index: 30;
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease-in;
@@ -85,7 +85,7 @@ h3 {
 .connect-btn {
 
     padding: 12px 30px;
-    background-color: #464646;
+    background-color: #4f3726;
     color: antiquewhite;
     font-size: 1.2rem;
     font-weight: bold;
@@ -99,7 +99,7 @@ h3 {
 .download-btn {
     display: inline-block;
     padding: 12px 30px;
-    border: 1px solid #d0d3ff49;
+    border: 1px solid #2733d249;
     color: antiquewhite;
     font-size: 1.2rem;
     font-weight: bold;
@@ -122,13 +122,13 @@ h3 {
 
 .Adminbtnplace {
     z-index: 1;
-    bottom: 0;
-
+    top: 0;
     right: 0px;
     position: fixed;
+    justify-content: center;
+    align-items: center;
     padding: 50px;
     cursor: none;
-
 }
 
 .admin-btn {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { db } from "./firebaseConfig";
+import { db } from "../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import "../Styles/Aboutme.css";
-import "../Styles/Style.css";
-import CustomCursor from "../components/Customcursor";
+import '../../Styles/Aboutme.css';
+import '../../Styles/Style.css';
+import CustomCursor from "../Customcursor";
 import { NavLink } from "react-router-dom";
 
 const Aboutme = () => {
@@ -121,6 +121,7 @@ const Aboutme = () => {
                         className="skill-icon"
                       />
                     ))}
+                   
                   </div>
                 )}
               </div>
