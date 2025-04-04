@@ -110,6 +110,7 @@ const Aboutme = () => {
           <div className="details">
             {aboutData?.skills?.map((skill, index) => (
               <div key={index} className="skill-item">
+                <div className="skill-container-header">
                 <p>{skill.skill}</p>
                 {skill.images && skill.images.length > 0 && (
                   <div className="skill-icons">
@@ -124,6 +125,12 @@ const Aboutme = () => {
                    
                   </div>
                 )}
+                </div>
+                <div className="skill-details">
+                  
+                 <p> {skill.details}</p>
+
+                </div>
               </div>
             ))}
           </div>

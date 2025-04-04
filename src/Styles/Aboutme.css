@@ -11,6 +11,8 @@
   width: 100%;
 }
 
+
+
 #Image-name {
   display: flex;
   flex-wrap: wrap;
@@ -32,6 +34,21 @@
   transition: transform 0.3s ease; /* Add hover effect */
   
 }
+.skill-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-item .skill-details p {
+  
+  font-weight: normal;
+  color:  rgba(250, 235, 215, 0.559);
+  margin-bottom: 10px;
+  line-height: 1.5;  /* Adding line-height for better readability */
+}
+
 
 
 
@@ -138,7 +155,7 @@
 #section {
   color: antiquewhite;
   text-align: left;
-  gap: 40px;
+  gap: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
