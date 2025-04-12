@@ -22,7 +22,7 @@
     position: fixed;
     width: 20px;
     height: 20px;
-    background-color: antiquewhite;
+    background-color: #faebd7;
     border-radius: 50%;
     z-index: 30;
     pointer-events: none;
@@ -45,15 +45,16 @@
 
 p {
     font-size: 12pt;
+    font-weight: normal;
     font-family: "poppins";
-    color: antiquewhite;
+    color: rgba(250, 235, 215, 0.471);
 }
 
 
 
 h1 {
     font-size: 4rem;
-    color: antiquewhite;
+    color: #faebd7;
 }
 
 
@@ -65,7 +66,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 17px;
     margin-top: 10px;
     color: antiquewhite;
 }
@@ -76,7 +77,6 @@ h3 {
     flex-wrap: wrap;
     width: 100%;
     gap: 20px;
-    margin-top: px;
     justify-content: right;
     cursor: none;
 }
@@ -85,12 +85,12 @@ h3 {
 .connect-btn {
 
     padding: 12px 30px;
-    background-color: #4f3726;
+    border: solid .5px #4f3726;
     color: antiquewhite;
     font-size: 1.2rem;
     font-weight: bold;
     justify-content: space-between;
-    border-radius: 10px;
+    border-radius: 300px;
     text-decoration: none;
     cursor: none;
     transition: background-color 0.3s ease, color 0.3s ease;

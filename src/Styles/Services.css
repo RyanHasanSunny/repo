@@ -1,0 +1,19 @@
+.services-container {
+    padding: 40px 20px;
+    text-align: center;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .services-list {
+    display: flex;
+   flex-direction: row;
+    gap: 70px;
+    justify-items: center;
+  }
+  
+ 
+  

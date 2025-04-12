@@ -15,6 +15,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import AboutMe from './aboutme/Aboutme';
 
 import CustomCursor from "../components/Customcursor"; // Import the CustomCursor component
+import Services from './OurServices';
 
 
 
@@ -63,9 +64,14 @@ function App() {
               <section id="introduction">
                 <Introduction />
               </section>
+              <section id="ourservices">
+                <Services />
+              </section>
+
               <section id="portfolio">
                 <Portfolio />
               </section>
+             
               {/* <section id="articles">
                 <Articles />
               </section> */}

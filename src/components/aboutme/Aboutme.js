@@ -7,10 +7,10 @@ import CustomCursor from "../Customcursor";
 import { NavLink } from "react-router-dom";
 
 const Aboutme = () => {
+  
   const [aboutData, setAboutData] = useState(null);
   const [contactData, setContactData] = useState(null);
   const [imageUrl, setImageData] = useState(null);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -70,7 +70,7 @@ const Aboutme = () => {
             <div id="text-content">
               <div id="Name">
                 <h2>I'm</h2>
-                <p>{aboutData?.name || "Ryan Hasan Sunny"}</p>
+                <h2>{aboutData?.name || "Ryan Hasan Sunny"}</h2>
               </div>
               <div id="workingdetails">
                 <div className="Experience">
@@ -111,7 +111,7 @@ const Aboutme = () => {
             {aboutData?.skills?.map((skill, index) => (
               <div key={index} className="skill-item">
                 <div className="skill-container-header">
-                <p>{skill.skill}</p>
+                <h3>{skill.skill}</h3>
                 {skill.images && skill.images.length > 0 && (
                   <div className="skill-icons">
                     {skill.images.map((image, imgIndex) => (

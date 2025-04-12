@@ -41,10 +41,8 @@
   margin-bottom: 10px;
 }
 
-.skill-item .skill-details p {
-  
-  font-weight: normal;
-  color:  rgba(250, 235, 215, 0.559);
+.skill-item .skill-details {
+
   margin-bottom: 10px;
   line-height: 1.5;  /* Adding line-height for better readability */
 }
@@ -54,7 +52,7 @@
 
 
 
-.skill-item p {
+.skill-item  {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
@@ -81,11 +79,11 @@
 #img {
   display: flex;
   width: fit-content;
-  height: fit-content;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid #d0d3ff49;
+  /* border-radius: 20px;
+  border: 1px solid #d0d3ff49; */
   transition: transform 0.3s ease;
 }
 
@@ -152,8 +150,7 @@
   border-radius: 6px;
 }
 
-#section {
-  color: antiquewhite;
+#section  {
   text-align: left;
   gap: 70px;
   display: flex;
@@ -191,21 +188,17 @@
   width: 60%;
 }
 
-#section .title h2 {
+#section .title  {
   font-family: "poppins";
   font-weight: bold;
   
   justify-content: space-around;
 }
 
-#section h2 {
-  text-align: justify;
-  font-family: "poppins";
-  font-weight: bold;
-  font-size: 35px;
-}
 
-#section p {
+
+#section {
+  color: #faebd78f;
   text-align: justify;
   font-family: "poppins";
   font-size: 18px;
@@ -216,14 +209,14 @@
   margin-bottom: 20px;
 }
 
-.item h3 {
+.item  {
   font-size: 18px;
   font-family: "poppins";
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.item p {
+.item {
   margin: 5px 0;
   font-family: "poppins";
 }
@@ -235,20 +228,20 @@
   padding: 10px;
 }
 
-.education-item h3 {
+.education-item  {
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "poppins";
   margin-bottom: 5px;
 }
 
-.education-item p {
+.education-item {
   margin: 5px 0;
   font-family: "poppins";
 }
 
 /* Contact Section */
-.contact p {
+.contact {
   margin: 10px 0;
   font-size: 1.1rem;
   font-family: "poppins";
@@ -273,11 +266,11 @@
     gap: 30px;
   }
 
-  #section h2 {
+  #section  {
     font-size: 28px;
   }
 
-  #section p {
+  #section {
     font-size: 16px;
   }
 }
@@ -300,11 +293,11 @@
     gap: 20px;
   }
 
-  #section h2 {
+  #section {
     font-size: 30px;
   }
 
-  #section p {
+  #section{
     font-size: 16px;
   }
 
@@ -324,11 +317,11 @@
     padding: 30px;
   }
 
-  #Name h2 {
+  #Name  {
     font-size: 40px;
   }
 
-  #Name p {
+  #Name {
     font-size: 40px;
   }
 
@@ -344,11 +337,11 @@
     gap: 10px;
   }
 
-  #section h2 {
+  #section  {
     font-size: 26px;
   }
 
-  #section p {
+  #section{
     font-size: 14px;
   }
 
@@ -371,11 +364,11 @@
     padding: 20px;
   }
 
-  #Name h2 {
+  #Name {
     font-size: 30px;
   }
 
-  #Name p {
+  #Name {
     font-size: 30px;
   }
 
@@ -392,11 +385,11 @@
     flex-direction: column;
   }
 
-  #section h2 {
+  #section  {
     font-size: 22px;
   }
 
-  #section p {
+  #section  {
     font-size: 14px;
   }
 
@@ -419,11 +412,11 @@
     padding: 15px;
   }
 
-  #Name h2 {
+  #Name  {
     font-size: 25px;
   }
 
-  #Name p {
+  #Name  {
     font-size: 25px;
   }
 
@@ -431,11 +424,11 @@
     width: 90%;
   }
 
-  #section h2 {
+  #section {
     font-size: 20px;
   }
 
-  #section p {
+  #section {
     font-size: 12px;
   }
 
