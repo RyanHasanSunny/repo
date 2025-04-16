@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { easeInOut, motion } from 'framer-motion';
+import {  motion, easeInOut } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../Styles/ServiceCard.css';
 import Card from './LogoDesignCard';
 
-const AnimatedCard = ({ service, delay, scrollDirection }) => {
+const AnimatedCard = ({ service, scrollDirection }) => {
   const [ref, inView] = useInView({
-    threshold: 0.7,
+    threshold: 0.2,
     triggerOnce: false
   });
 
@@ -15,16 +15,15 @@ const AnimatedCard = ({ service, delay, scrollDirection }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: xDirection, scale: 0.95 }}
+      initial={{ opacity: 0, x: xDirection, scale: 1 }}
       animate={inView ? { 
         opacity: 1, 
         x: 0, 
         scale: 1,
         transition: { 
           type: "spring",
-          stiffness: 100,
-          damping: 15,
-          delay
+          stiffness: 40
+     
         }
       } : { 
         opacity: 0, 
@@ -35,7 +34,7 @@ const AnimatedCard = ({ service, delay, scrollDirection }) => {
         opacity: 0, 
         x: xDirection * -1, 
         scale: 0.95,
-        transition: { duration: 0.3 } 
+        transition: { duration: 0.50 } 
       }}
       transition={{ ease: easeInOut }}
     >
@@ -170,7 +169,7 @@ function GraphicCard({ type }) {
             type: service.type,
             serviceItems: service.serviceItems // Pass serviceItems here
           }}
-          delay={index * 0.15}
+          delay={index * 0.20}
           scrollDirection={scrollDirection}
         />
       ))}

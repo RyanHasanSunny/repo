@@ -1,35 +1,37 @@
 body {
-
+  scroll-behavior: smooth;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #110700, #0a000f); /* Gradient from blue to cyan */
+  background: linear-gradient(180deg, #110700, #0a000f);
+  /* Gradient from blue to cyan */
   z-index: auto;
-height: fit-content;
+  height: fit-content;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif, 'poppins';
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: smooth;
   -moz-osx-font-smoothing: grayscale;
 
   /* Disable text selection */
-  
+
 
 }
 
 
 .App {
-  scroll-behavior: smooth; /* Enable smooth scrolling */
+  scroll-behavior: smooth;
+  /* Enable smooth scrolling */
 
-  
+
 }
 
 nav {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  mix-blend-mode:lighten;
+  mix-blend-mode: lighten;
   position: fixed;
-cursor: none;
+  cursor: none;
   width: 100%;
 }
 
@@ -43,15 +45,18 @@ cursor: none;
 
 
 .nav-links a {
-  
+
   text-align: center;
-  color: white; /* Navigation link color */
+  color: white;
+  /* Navigation link color */
   text-decoration: none;
-  transition: transform 1s ease; /* Animation for hover */}
+  transition: transform 1s ease;
+  /* Animation for hover */
+}
 
 .nav-links a:hover {
- font-size: 20px;
-  
+  font-size: 20px;
+
 }
 
 
@@ -78,13 +83,12 @@ cursor: none;
 
 @keyframes appear {
   from {
-   opacity: 0;
-   scale: 0.5;
+    opacity: 0;
+    scale: 0.5;
   }
+
   to {
     opacity: 1;
     scale: 1;
   }
 }
-
-

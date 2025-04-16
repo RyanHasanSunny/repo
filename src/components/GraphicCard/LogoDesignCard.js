@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../Styles/LogoDesign.css';
 import graphicDesignImage1 from '../../assets/Logo.svg';
-//import graphicDesignImage2 from '../../assets/Poster.svg';
+import graphicDesignImage2 from '../../assets/3dicon.svg';
+import graphicDesignImage3 from '../../assets/Videoediting.svg';
 
 function Card({ title, description, type, serviceItems  }) {
     // Data for different card types
@@ -17,7 +18,33 @@ function Card({ title, description, type, serviceItems  }) {
         },
         Packaging_and_Merchandises: {
             image: graphicDesignImage1, // Replace with actual image import
-        }
+        },
+        Character_Modeling: {
+            image: graphicDesignImage2, // Replace with actual image import
+
+        },
+        Product_Visualization: {
+            image: graphicDesignImage2, // Replace with actual image import
+
+        },
+        Architectural_Rendering: {
+            image: graphicDesignImage2, // Replace with actual image import
+
+        },
+        Hard_Surface_Modeling: {
+            image: graphicDesignImage2, // Replace with actual image import
+
+        },
+        Video_Editing: {
+            image: graphicDesignImage3, // Replace with actual image import
+
+        },
+        Motion_Graphics: {
+            image: graphicDesignImage3, // Replace with actual image import
+
+        },
+        
+
     };
 
     const currentCardData = cardData[type] || {};

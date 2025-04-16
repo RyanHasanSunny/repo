@@ -38,14 +38,15 @@
 
 .serviceitem h1 {
   font-style: italic;
-  font-size: 14px;
+  font-size: 17px;
   color: rgba(250, 235, 215, 0.389);
   width: 100%;
-  height: 20px;
+  height: 100%;
 
 }
 
 .serviceitems{
+  align-items: end;
   justify-content: right;
   display: flex;
   margin-top: 2%;

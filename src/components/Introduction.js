@@ -46,7 +46,7 @@ const Introduction = () => {
   return (
     <section id="introduction-section">
       {/* Custom Cursor */}
-      
+
       {/* Main Content */}
       <div id="home-content" className="home-content">
         <div id="home-content-header" className="home-content-header">
@@ -102,8 +102,10 @@ const Introduction = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <h2>Dive into my projects,</h2>
-            <h2>where creativity meets precision</h2>
+            <h2>Explore Our Services,</h2>
+            <h2>Where Innovation Meets Excellence</h2>
+            {/* <h2>Dive into my projects,</h2>
+            <h2>where creativity meets precision</h2> */}
           </motion.div>
         </div>
       </div>
